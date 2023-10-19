@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartMenuSceneMangaerScript : MonoBehaviour
+public class LoseGameSceneManagerScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    private void Start()
+    void Start()
     {
+        
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
+        
     }
 
-    public void StartButtonOnClicked()
+    public void RestartOnClick()
     {
         SceneManager.LoadScene("Level1Scene");
     }
 
-    public void QuitButtonOnClicked()
+    public void MainMenuOnClick()
     {
-        Application.Quit();
+        SceneManager.LoadScene("StartMenuScene");
     }
 }

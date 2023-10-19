@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartMenuSceneMangaerScript : MonoBehaviour
+public class WinGameSceneManagerScript : MonoBehaviour
 {
     // Start is called before the first frame update
     private void Start()
@@ -15,13 +15,13 @@ public class StartMenuSceneMangaerScript : MonoBehaviour
     {
     }
 
-    public void StartButtonOnClicked()
+    public void PlayAgainOnClick()
     {
         SceneManager.LoadScene("Level1Scene");
     }
 
-    public void QuitButtonOnClicked()
+    public void MainMenuOnClick()
     {
-        Application.Quit();
+        SceneManager.LoadScene("StartMenuScene");
     }
 }
