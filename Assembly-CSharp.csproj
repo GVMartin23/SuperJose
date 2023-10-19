@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\WinGameScripts\WinGameSceneManagerScript.cs" />
     <Compile Include="Assets\Scripts\StartMenuScripts\StartMenuSceneMangaerScript.cs" />
+    <Compile Include="Assets\Scripts\LoseGameScripts\LoseGameSceneManagerScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
