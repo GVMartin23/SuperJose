@@ -59,9 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\WinGameScripts\WinGameSceneManagerScript.cs" />
+    <Compile Include="Assets\Scripts\SharedScripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\StartMenuScripts\StartMenuSceneMangaerScript.cs" />
     <Compile Include="Assets\Scripts\playerscript.cs" />
     <Compile Include="Assets\Scripts\LoseGameScripts\LoseGameSceneManagerScript.cs" />
+    <Compile Include="Assets\Scripts\SharedScripts\JoseScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
