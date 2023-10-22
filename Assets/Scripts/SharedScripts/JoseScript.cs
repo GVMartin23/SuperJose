@@ -26,5 +26,16 @@ public class JoseScript : MonoBehaviour
     {
         float dx = Input.GetAxis("Horizontal");
         _rigidBody.velocity = new Vector2(dx * Speed, _rigidBody.velocity.y);//Keep y velocity same instead of at 0, might be good when we have jumping
+        
+
+        //flips sprite
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
 }
