@@ -11,11 +11,14 @@ public class JoseScript : MonoBehaviour
     bool _startedJump = false;
     bool _hasJumped = false;
 
+    public GameObject PlayerJump;
+
     Rigidbody2D _rbody;
     // Start is called before the first frame update
     void Start()
     {
         _rbody = GetComponent<Rigidbody2D>();
+        //PlayerJump.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,12 +28,16 @@ public class JoseScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
         {
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            PlayerJump.SetActive(true);
             _startedJump = true;
             _hasJumped = true;
         }
         if (Input.GetKeyUp(KeyCode.UpArrow) && _hasJumped)
         {
-            _rbody.velocity = _rbody.velocity / 2f;
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            PlayerJump.SetActive(false);
+            _rbody.velocity = _rbody.velocity / 5f;
             _hasJumped = false;
         }
 
@@ -64,10 +71,12 @@ public class JoseScript : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            PlayerJump.GetComponent<SpriteRenderer>().flipX = true;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            PlayerJump.GetComponent<SpriteRenderer>().flipX = false;
         }
     }
 
