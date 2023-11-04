@@ -40,13 +40,10 @@ public class JoseScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && WasGrounded())
         {
             _startedJump = true;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
             PlayerJump.SetActive(true);
         }
         if (Input.GetKeyUp(KeyCode.Space) && _hasJumped)
-        {
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            PlayerJump.SetActive(false);
+        { 
             _hasJumped = false;
             float dy = _rbody.velocity.y > 0 ? _rbody.velocity.y / 5f : _rbody.velocity.y;
             _rbody.velocity = new Vector2(_rbody.velocity.x, dy);
@@ -79,29 +76,46 @@ public class JoseScript : MonoBehaviour
     //Currently can only move left and right, jumping later
     private void HandleMovement()
     {
-        float dx = Input.GetAxis("Horizontal");
-        _rbody.velocity = new Vector2(dx * Speed, _rbody.velocity.y);//Keep y velocity same instead of at 0, might be good when we have jumping
-        
 
-        //flips sprite
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
             PlayerJump.GetComponent<SpriteRenderer>().flipX = true;
-            
-
+            PlayerWalk.GetComponent<SpriteRenderer>().flipX = true;
         }
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
             PlayerJump.GetComponent<SpriteRenderer>().flipX = false;
-            
+            PlayerWalk.GetComponent<SpriteRenderer>().flipX = false;
 
-            
-            
         }
+
+
+
+        if (!IsGrounded())
+        {
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            PlayerJump.SetActive(true);
+            PlayerWalk.SetActive(false);
+        }
+        else if (IsGrounded() && ((Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.LeftArrow)) || (Input.GetKey(KeyCode.RightArrow))))
+        {
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            PlayerJump.SetActive(false);
+            PlayerWalk.SetActive(true);
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            PlayerJump.SetActive(false);
+            PlayerWalk.SetActive(false);
+        }
+
+
+        
+
+        
 
        
     }
