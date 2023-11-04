@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\WinGameScripts\WinGameSceneManagerScript.cs" />
+    <Compile Include="Assets\Scripts\SharedScripts\firescript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\StartMenuScripts\StartMenuSceneMangaerScript.cs" />
     <Compile Include="Assets\Scripts\LoseGameScripts\LoseGameSceneManagerScript.cs" />
