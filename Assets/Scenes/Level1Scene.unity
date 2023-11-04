@@ -929,6 +929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: door 2b
       objectReference: {fileID: 0}
+    - target: {fileID: 3366733432513665094, guid: 17961adb08423d24f86414b6604f3749, type: 3}
+      propertyPath: m_TagString
+      value: Level2BDoor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1178,6 +1182,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 22287112948246683, guid: 17961adb08423d24f86414b6604f3749, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2597225734017420445, guid: 17961adb08423d24f86414b6604f3749, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
@@ -1221,6 +1229,10 @@ PrefabInstance:
     - target: {fileID: 3366733432513665094, guid: 17961adb08423d24f86414b6604f3749, type: 3}
       propertyPath: m_Name
       value: door 2a
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366733432513665094, guid: 17961adb08423d24f86414b6604f3749, type: 3}
+      propertyPath: m_TagString
+      value: Level2ADoor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

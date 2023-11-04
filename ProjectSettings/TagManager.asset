@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Level2BDoor
+  - Level2ADoor
+  - Level3ADoor
+  - Level3BDoor
   layers:
   - Default
   - TransparentFX

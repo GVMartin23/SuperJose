@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class JoseScript : MonoBehaviour
@@ -118,4 +119,43 @@ public class JoseScript : MonoBehaviour
         return Time.time - _lastJumpTime < CoyoteTime;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Level2ADoor"))
+        {
+            Invoke("LoadLevel2A", 1);
+        }
+        if (collision.gameObject.CompareTag("Level2BDoor"))
+        {
+            Invoke("LoadLevel2B", 1);
+        }
+        if (collision.gameObject.CompareTag("Level3ADoor"))
+        {
+            Invoke("LoadLevel3A", 1);
+        }
+        if (collision.gameObject.CompareTag("Level3BDoor"))
+        {
+            Invoke("LoadLevel3B", 1);
+        }
+    }
+
+    void LoadLevel2A()
+    {
+        SceneManager.LoadScene("Level2AScene");
+    }
+
+    void LoadLevel2B()
+    {
+        SceneManager.LoadScene("Level2BScene");
+    }
+
+    void LoadLevel3A()
+    {
+        SceneManager.LoadScene("Level3AScene");
+    }
+
+    void LoadLevel3B()
+    {
+        SceneManager.LoadScene("Level3BScene");
+    }
 }
