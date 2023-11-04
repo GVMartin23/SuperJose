@@ -12,6 +12,7 @@ public class JoseScript : MonoBehaviour
     bool _hasJumped = false;
 
     public GameObject PlayerJump;
+    public GameObject PlayerWalk;
     Rigidbody2D _rbody;
 
 
@@ -85,14 +86,24 @@ public class JoseScript : MonoBehaviour
         //flips sprite
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
+            
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
             PlayerJump.GetComponent<SpriteRenderer>().flipX = true;
+            
+
         }
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
+            
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
             PlayerJump.GetComponent<SpriteRenderer>().flipX = false;
+            
+
+            
+            
         }
+
+       
     }
 
     private bool IsGrounded()
