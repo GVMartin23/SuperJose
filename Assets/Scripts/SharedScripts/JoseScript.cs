@@ -12,8 +12,13 @@ public class JoseScript : MonoBehaviour
     bool _hasJumped = false;
 
     public GameObject PlayerJump;
-
     Rigidbody2D _rbody;
+
+
+    public float CoyoteTime;
+    private float _lastJumpTime = 0;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,20 +31,26 @@ public class JoseScript : MonoBehaviour
     {
         HandleMovement();
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
+        //
+        if (IsGrounded())
         {
+            _lastJumpTime = Time.time;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && WasGrounded())
+        {
+            _startedJump = true;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             PlayerJump.SetActive(true);
-            _startedJump = true;
-            _hasJumped = true;
         }
-        if (Input.GetKeyUp(KeyCode.UpArrow) && _hasJumped)
+        if (Input.GetKeyUp(KeyCode.Space) && _hasJumped)
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             PlayerJump.SetActive(false);
-            _rbody.velocity = _rbody.velocity / 5f;
             _hasJumped = false;
+            float dy = _rbody.velocity.y > 0 ? _rbody.velocity.y / 5f : _rbody.velocity.y;
+            _rbody.velocity = new Vector2(_rbody.velocity.x, dy);
         }
+
 
     }
 
@@ -50,11 +61,15 @@ public class JoseScript : MonoBehaviour
 
 
 
+        
+
         if (_startedJump)
         {
-            //_rbody.AddForce(Vector2.up * JumpForce);
-            _rbody.velocity = new Vector2(0, JumpForce);
+            var yforce = Vector2.up * JumpForce;
+            _rbody.velocity += yforce;
             _startedJump = false;
+            _hasJumped = true;
+
 
         }
     }
@@ -68,12 +83,12 @@ public class JoseScript : MonoBehaviour
         
 
         //flips sprite
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
             PlayerJump.GetComponent<SpriteRenderer>().flipX = true;
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
             PlayerJump.GetComponent<SpriteRenderer>().flipX = false;
@@ -82,9 +97,14 @@ public class JoseScript : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.left, Vector2.down, 0.65f, GroundLayer);
-        RaycastHit2D hit2 = Physics2D.Raycast(transform.position + Vector3.right, Vector2.down, 0.65f, GroundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.left *.5f, Vector2.down, 0.65f, GroundLayer);
+        RaycastHit2D hit2 = Physics2D.Raycast(transform.position + Vector3.right*.5f, Vector2.down, 0.65f, GroundLayer);
         return hit.collider != null || hit2.collider != null;
+    }
+
+    private bool WasGrounded()
+    {
+        return Time.time - _lastJumpTime < CoyoteTime;
     }
 
 }

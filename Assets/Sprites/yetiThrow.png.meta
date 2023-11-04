@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,343 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: yetiThrow_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 954.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c20b7028cd425fa4893ffe3d44d5325e
+      internalID: 2028152284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 954.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b019907639faed4a870a4a3a775b635
+      internalID: -867084902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 954.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b97e83202b9568d469a2bc0f6e787958
+      internalID: -849469195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 954.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a929d38542181e4e9ab6bdb5be958e6
+      internalID: -2039368317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 636.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57d56ca11e77fce43a2b8a46574f7e0c
+      internalID: 215409314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 636.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 995ba6f511aa26845b99b809b27e01e5
+      internalID: 296898454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_6
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 636.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 015ae08d76c987847bb7410bb0415df2
+      internalID: 4869959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_7
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 636.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826548839e49dc845abd5e6e61138602
+      internalID: 651998142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 318.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2975474248e3a194ca027460009ecdbf
+      internalID: 1208910194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_9
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 318.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73776db2f523aea4ca2fe4f9d037d076
+      internalID: 1612902533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 318.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96e10163ec2cf24d97739e37319cba9
+      internalID: 1819300283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_11
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 318.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a004481856bb754bbacd1a2ce5e1635
+      internalID: 1556497185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 108ac16cc52f77140b54e50f5119f578
+      internalID: -1531901092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_13
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 031ad0c1a24148b40959982a7b25d4dc
+      internalID: -781677395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_14
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8696841ceb7f44fb33e0e5e34b84b7
+      internalID: -667191238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yetiThrow_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0.75
+        width: 320
+        height: 318.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a5f21018c3d8824b8d1675286589c28
+      internalID: -1754063390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +455,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      yetiThrow_0: 2028152284
+      yetiThrow_1: -867084902
+      yetiThrow_10: 1819300283
+      yetiThrow_11: 1556497185
+      yetiThrow_12: -1531901092
+      yetiThrow_13: -781677395
+      yetiThrow_14: -667191238
+      yetiThrow_15: -1754063390
+      yetiThrow_2: -849469195
+      yetiThrow_3: -2039368317
+      yetiThrow_4: 215409314
+      yetiThrow_5: 296898454
+      yetiThrow_6: 4869959
+      yetiThrow_7: 651998142
+      yetiThrow_8: 1208910194
+      yetiThrow_9: 1612902533
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
