@@ -177,19 +177,24 @@ public class JoseScript : MonoBehaviour
 
     private void FrogCollision()
     {
+
         int lives = PlayerPrefs.GetInt("Lives");
         lives--;
-        if (lives == 0)
+        PlayerPrefs.SetInt("Lives", lives);
+
+        // TODO: DEATH STUFF
+        _rbody.velocity = Vector2.up * 10f;
+        _boxCollider.enabled = false;
+
+        if (lives < 0)
         {
             Invoke(nameof(LoadLoseGame), 2f);
         } else
         {
             Invoke(SceneName, 2f);
         }
+
         
-        // TODO: DEATH STUFF
-        _rbody.velocity = Vector2.up * 10f;
-        _boxCollider.enabled = false;
     }
 
     private void LoadLoseGame()
