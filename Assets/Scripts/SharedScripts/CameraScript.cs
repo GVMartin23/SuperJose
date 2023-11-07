@@ -23,18 +23,18 @@ public class CameraScript : MonoBehaviour
     {
         if (Jose != null)
         {
-            if (Jose.transform.position.x >= 5)
-            {
-                transform.position = new Vector3(5, offset.y, offset.z);
-            }
-            else if (Jose.transform.position.x <= -5)
-            {
-                transform.position = new Vector3(-5, offset.y, offset.z);
-            }
-            else
-            {
+            //if (Jose.transform.position.x >= 5)
+            //{
+            //    transform.position = new Vector3(5, offset.y, offset.z);
+            //}
+            //else if (Jose.transform.position.x <= -5)
+            //{
+            //    transform.position = new Vector3(-5, offset.y, offset.z);
+            //}
+            //else
+            //{
                 transform.position = new Vector3(Jose.transform.position.x, offset.y, offset.z);
-            }
+            //}
         }
     }
 }
