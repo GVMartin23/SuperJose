@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class JoseScript : MonoBehaviour
 {
     public LayerMask GroundLayer;
+    public string SceneName;
     public float Speed;
     public float JumpForce;
     private bool _startedJump = false;
@@ -149,6 +150,10 @@ public class JoseScript : MonoBehaviour
             FrogCollision();
         }
     }
+    private void LoadLevel1()
+    {
+        SceneManager.LoadScene("Level1Scene");
+    }
 
     private void LoadLevel2A()
     {
@@ -172,7 +177,16 @@ public class JoseScript : MonoBehaviour
 
     private void FrogCollision()
     {
-        Invoke(nameof(LoadLoseGame), 2f);
+        int lives = PlayerPrefs.GetInt("Lives");
+        lives--;
+        if (lives == 0)
+        {
+            Invoke(nameof(LoadLoseGame), 2f);
+        } else
+        {
+            Invoke(SceneName, 2f);
+        }
+        
         // TODO: DEATH STUFF
         _rbody.velocity = Vector2.up * 10f;
         _boxCollider.enabled = false;
