@@ -6,19 +6,18 @@ using UnityEngine.SceneManagement;
 public class LoseGameSceneManagerScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 
     public void RestartOnClick()
     {
+        PlayerPrefs.SetInt("Lives", 3);
         SceneManager.LoadScene("Level1Scene");
     }
 

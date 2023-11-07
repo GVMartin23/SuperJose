@@ -12,21 +12,19 @@ public class JoseScript : MonoBehaviour
     public LayerMask GroundLayer;
     public float Speed;
     public float JumpForce;
-    bool _startedJump = false;
-    bool _hasJumped = false;
+    private bool _startedJump = false;
+    private bool _hasJumped = false;
 
     public GameObject PlayerJump;
     public GameObject PlayerWalk;
-    Rigidbody2D _rbody;
-    BoxCollider2D _boxCollider;
-
+    private Rigidbody2D _rbody;
+    private BoxCollider2D _boxCollider;
 
     public float CoyoteTime;
     private float _lastJumpTime = 0;
 
-    
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _rbody = GetComponent<Rigidbody2D>();
         _boxCollider = GetComponent<BoxCollider2D>();
@@ -34,7 +32,7 @@ public class JoseScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         HandleMovement();
 
@@ -49,13 +47,11 @@ public class JoseScript : MonoBehaviour
             PlayerJump.SetActive(true);
         }
         if (Input.GetKeyUp(KeyCode.Space) && _hasJumped)
-        { 
+        {
             _hasJumped = false;
             float dy = _rbody.velocity.y > 0 ? _rbody.velocity.y / 5f : _rbody.velocity.y;
             _rbody.velocity = new Vector2(_rbody.velocity.x, dy);
         }
-
-
     }
 
     private void FixedUpdate()
@@ -63,18 +59,12 @@ public class JoseScript : MonoBehaviour
         float xdir = Input.GetAxis("Horizontal");
         _rbody.velocity = new Vector2(xdir * Speed, _rbody.velocity.y);
 
-
-
-        
-
         if (_startedJump)
         {
             var yforce = Vector2.up * JumpForce;
             _rbody.velocity += yforce;
             _startedJump = false;
             _hasJumped = true;
-
-
         }
     }
 
@@ -82,22 +72,18 @@ public class JoseScript : MonoBehaviour
     //Currently can only move left and right, jumping later
     private void HandleMovement()
     {
-
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
             PlayerJump.GetComponent<SpriteRenderer>().flipX = true;
             PlayerWalk.GetComponent<SpriteRenderer>().flipX = true;
         }
-        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
             PlayerJump.GetComponent<SpriteRenderer>().flipX = false;
             PlayerWalk.GetComponent<SpriteRenderer>().flipX = false;
-
         }
-
-
 
         if (!IsGrounded())
         {
@@ -117,19 +103,12 @@ public class JoseScript : MonoBehaviour
             PlayerJump.SetActive(false);
             PlayerWalk.SetActive(false);
         }
-
-
-        
-
-        
-
-       
     }
 
     private bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.left *.5f, Vector2.down, 0.65f, GroundLayer);
-        RaycastHit2D hit2 = Physics2D.Raycast(transform.position + Vector3.right*.5f, Vector2.down, 0.65f, GroundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.left * .5f, Vector2.down, 0.65f, GroundLayer);
+        RaycastHit2D hit2 = Physics2D.Raycast(transform.position + Vector3.right * .5f, Vector2.down, 0.65f, GroundLayer);
         return hit.collider != null || hit2.collider != null;
     }
 
@@ -157,7 +136,6 @@ public class JoseScript : MonoBehaviour
             Invoke("LoadLevel3B", 1);
         }
 
-
         if (collision.gameObject.CompareTag("FroggyBoi"))
         {
             FrogCollision();
@@ -172,36 +150,35 @@ public class JoseScript : MonoBehaviour
         }
     }
 
-    void LoadLevel2A()
+    private void LoadLevel2A()
     {
         SceneManager.LoadScene("Level2AScene");
     }
 
-    void LoadLevel2B()
+    private void LoadLevel2B()
     {
         SceneManager.LoadScene("Level2BScene");
     }
 
-    void LoadLevel3A()
+    private void LoadLevel3A()
     {
         SceneManager.LoadScene("Level3AScene");
     }
 
-    void LoadLevel3B()
+    private void LoadLevel3B()
     {
         SceneManager.LoadScene("Level3BScene");
     }
 
-    void FrogCollision() 
+    private void FrogCollision()
     {
         Invoke(nameof(LoadLoseGame), 2f);
         // TODO: DEATH STUFF
-        _rbody.velocity = Vector2.up * 20f;
+        _rbody.velocity = Vector2.up * 10f;
         _boxCollider.enabled = false;
-
     }
 
-    void LoadLoseGame()
+    private void LoadLoseGame()
     {
         SceneManager.LoadScene("LoseGameScene");
     }
