@@ -6,31 +6,49 @@ using UnityEngine;
 
 public class moving_platform_script : MonoBehaviour
 {
+    public bool UpDown;
+    public float UpperBound;
+    public float LowerBound;
     public int speed;
     Rigidbody2D _rbody;
-    Vector2 down = (new Vector2(0, -3)).normalized;
 
     // Start is called before the first frame update
     void Start()
     {
         _rbody = GetComponent<Rigidbody2D>();
-        _rbody.velocity = (-down) * speed;
+        _rbody.velocity = UpDown ? Vector2.up * speed : Vector2.right * speed;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 position = _rbody.transform.position;
-        float posY = position.y;
+        if (UpDown)
+        {
+            Vector2 position = _rbody.transform.position;
+            float posY = position.y;
 
-        if (posY > -1.5)
+            if (posY > UpperBound)
+            {
+                _rbody.velocity = Vector2.down * speed;
+            }
+            else if (posY < LowerBound)
+            {
+                _rbody.velocity = Vector2.up * speed;
+            }
+        } else
         {
-            _rbody.velocity = (down) * speed;
+            Vector2 pos = _rbody.transform.position;
+            float posX = pos.x;
+
+            if (posX > UpperBound)
+            {
+                _rbody.velocity = Vector2.left * speed;
+            } else if (posX < LowerBound)
+            {
+                _rbody.velocity = Vector2.right * speed;
+            }
         }
-        else if (posY < -4)
-        {
-            _rbody.velocity = (-down) * speed;
-        }
+        
     }
 }

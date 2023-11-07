@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class JoseScript : MonoBehaviour
 {
     public LayerMask GroundLayer;
@@ -15,6 +18,7 @@ public class JoseScript : MonoBehaviour
     public GameObject PlayerJump;
     public GameObject PlayerWalk;
     Rigidbody2D _rbody;
+    BoxCollider2D _boxCollider;
 
 
     public float CoyoteTime;
@@ -25,6 +29,7 @@ public class JoseScript : MonoBehaviour
     void Start()
     {
         _rbody = GetComponent<Rigidbody2D>();
+        _boxCollider = GetComponent<BoxCollider2D>();
         //PlayerJump.SetActive(false);
     }
 
@@ -151,6 +156,20 @@ public class JoseScript : MonoBehaviour
         {
             Invoke("LoadLevel3B", 1);
         }
+
+
+        if (collision.gameObject.CompareTag("FroggyBoi"))
+        {
+            FrogCollision();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("FroggyBoi"))
+        {
+            FrogCollision();
+        }
     }
 
     void LoadLevel2A()
@@ -171,5 +190,19 @@ public class JoseScript : MonoBehaviour
     void LoadLevel3B()
     {
         SceneManager.LoadScene("Level3BScene");
+    }
+
+    void FrogCollision() 
+    {
+        Invoke(nameof(LoadLoseGame), 2f);
+        // TODO: DEATH STUFF
+        _rbody.velocity = Vector2.up * 20f;
+        _boxCollider.enabled = false;
+
+    }
+
+    void LoadLoseGame()
+    {
+        SceneManager.LoadScene("LoseGameScene");
     }
 }
