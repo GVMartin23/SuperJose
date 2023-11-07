@@ -17,6 +17,7 @@ public class StartMenuSceneMangaerScript : MonoBehaviour
 
     public void StartButtonOnClicked()
     {
+        PlayerPrefs.SetInt("Lives", 3);
         SceneManager.LoadScene("Level1Scene");
     }
 
