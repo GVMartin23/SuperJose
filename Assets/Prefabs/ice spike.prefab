@@ -61,6 +61,10 @@ PrefabInstance:
       value: ice spike
       objectReference: {fileID: 0}
     - target: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
       propertyPath: m_TagString
       value: FroggyBoi
       objectReference: {fileID: 0}
