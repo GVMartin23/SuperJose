@@ -88,6 +88,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8497716359903440136, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8497716359903440136, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 732741623
+      objectReference: {fileID: 0}
     - target: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
       propertyPath: m_Name
       value: ice spike
