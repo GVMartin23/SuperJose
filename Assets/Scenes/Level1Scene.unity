@@ -9189,7 +9189,7 @@ PrefabInstance:
     - target: {fileID: 1284948002091495408, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: 12dbc35bb333fd845b6e7b4535bf0b45, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3593450535095537001, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
