@@ -10,19 +10,20 @@ public class CameraScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void LateUpdate()
     {
         if (Jose != null)
         {
+
             if (Jose.transform.position.x >= 45)
             {
                 transform.position = new Vector3(45, offset.y, offset.z);
@@ -33,7 +34,9 @@ public class CameraScript : MonoBehaviour
             }
             else
             {
+
                 transform.position = new Vector3(Jose.transform.position.x, offset.y, offset.z);
+
             }
         }
     }
