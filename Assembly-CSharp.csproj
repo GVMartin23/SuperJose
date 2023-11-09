@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\SharedScripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\LivesManager.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\EnemyScript.cs" />
+    <Compile Include="Assets\Scripts\SharedScripts\NavigationScript.cs" />
     <Compile Include="Assets\Scripts\StartMenuScripts\StartMenuSceneMangaerScript.cs" />
     <Compile Include="Assets\Scripts\LoseGameScripts\LoseGameSceneManagerScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\PlatformScript.cs" />
