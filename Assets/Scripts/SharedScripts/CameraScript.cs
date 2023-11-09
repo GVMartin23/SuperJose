@@ -20,19 +20,21 @@ public class CameraScript : MonoBehaviour
 
     private void LateUpdate()
     {
+        var yPos = offset.y;
+
         if (Jose != null)
         {
             if (Jose.transform.position.x >= 45)
             {
-                transform.position = new Vector3(45, offset.y, offset.z);
+                transform.position = new Vector3(45, yPos, offset.z);
             }
             else if (Jose.transform.position.x <= -45)
             {
-                transform.position = new Vector3(-45, offset.y, offset.z);
+                transform.position = new Vector3(-45, yPos, offset.z);
             }
             else
             {
-                transform.position = new Vector3(Jose.transform.position.x, offset.y, offset.z);
+                transform.position = new Vector3(Jose.transform.position.x, yPos, offset.z);
             }
         }
     }
