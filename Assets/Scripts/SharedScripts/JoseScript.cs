@@ -118,19 +118,19 @@ public class JoseScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Level2ADoor"))
         {
-            Invoke("LoadLevel2A", 1);
+            Invoke(nameof(LoadLevel2A), 1);
         }
         if (collision.gameObject.CompareTag("Level2BDoor"))
         {
-            Invoke("LoadLevel2B", 1);
+            Invoke(nameof(LoadLevel2B), 1);
         }
         if (collision.gameObject.CompareTag("Level3ADoor"))
         {
-            Invoke("LoadLevel3A", 1);
+            Invoke(nameof(LoadLevel3A), 1);
         }
         if (collision.gameObject.CompareTag("Level3BDoor"))
         {
-            Invoke("LoadLevel3B", 1);
+            Invoke(nameof(LoadLevel3B), 1);
         }
 
         if (collision.gameObject.CompareTag("FroggyBoi"))
@@ -164,7 +164,7 @@ public class JoseScript : MonoBehaviour
 
     private void LoadLevel3A()
     {
-        SceneManager.LoadScene("Level3AScene");
+        SceneManager.LoadScene("WinGameScene");
     }
 
     private void LoadLevel3B()
@@ -195,5 +195,10 @@ public class JoseScript : MonoBehaviour
     private void LoadLoseGame()
     {
         SceneManager.LoadScene("LoseGameScene");
+    }
+
+    private void LoadWinGame()
+    {
+        SceneManager.LoadScene("WinGameScene");
     }
 }
