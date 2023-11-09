@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8515786653469873306}
   - component: {fileID: -2598461442644266519}
   - component: {fileID: 1102122305116306451}
-  - component: {fileID: -1897891331617392776}
+  - component: {fileID: 2130937687798360557}
   m_Layer: 0
   m_Name: Frog
   m_TagString: FroggyBoi
@@ -130,8 +130,8 @@ MonoBehaviour:
   _wallLayer:
     serializedVersion: 2
     m_Bits: 0
---- !u!61 &-1897891331617392776
-BoxCollider2D:
+--- !u!60 &2130937687798360557
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -162,7 +162,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1, y: -0.05}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -172,6 +172,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.4}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.29, y: 0.33499998}
+      - {x: -0.42, y: 0.095}
+      - {x: -0.42, y: -0.205}
+      - {x: 0.26999998, y: -0.205}
+      - {x: 0.32, y: -0.145}
+      - {x: 0.32, y: 0.33499998}
+  m_UseDelaunayMesh: 0
