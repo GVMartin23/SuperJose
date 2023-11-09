@@ -150,6 +150,7 @@ public class JoseScript : MonoBehaviour
             FrogCollision();
         }
     }
+
     private void LoadLevel1()
     {
         SceneManager.LoadScene("Level1Scene");
@@ -177,24 +178,22 @@ public class JoseScript : MonoBehaviour
 
     private void FrogCollision()
     {
-
         int lives = PlayerPrefs.GetInt("Lives");
         lives--;
         PlayerPrefs.SetInt("Lives", lives);
 
-        // TODO: DEATH STUFF
-        _rbody.velocity = Vector2.up * 10f;
+        _rbody.velocity = Vector2.zero;
+        _rbody.velocity = Vector2.up * 8f;
         _boxCollider.enabled = false;
 
         if (lives < 0)
         {
             Invoke(nameof(LoadLoseGame), 2f);
-        } else
+        }
+        else
         {
             Invoke(SceneName, 2f);
         }
-
-        
     }
 
     private void LoadLoseGame()

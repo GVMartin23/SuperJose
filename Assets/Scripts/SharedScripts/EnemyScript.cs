@@ -6,24 +6,24 @@ using static UnityEditor.PlayerSettings;
 [RequireComponent(typeof(Rigidbody2D))]
 public class enemy_script : MonoBehaviour
 {
-    Rigidbody2D _rbody;
+    private Rigidbody2D _rbody;
     public float enemySpeed;
     public LayerMask _wallLayer;
-    bool _goingRight = true;
+    private bool _goingRight = true;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _rbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //choose when to turn around
         Vector3 center = transform.position;
         Vector2 directions = _goingRight ? Vector2.right : Vector2.left;
-        RaycastHit2D hit = Physics2D.Raycast(center, directions, 0.4f, _wallLayer);
+        RaycastHit2D hit = Physics2D.Raycast(center, directions, 0.5f, _wallLayer);
         if (hit.collider != null)
         {
             _goingRight = !_goingRight;
