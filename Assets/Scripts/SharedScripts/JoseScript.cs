@@ -25,7 +25,6 @@ public class JoseScript : MonoBehaviour
     {
         _rbody = GetComponent<Rigidbody2D>();
         _boxCollider = GetComponent<BoxCollider2D>();
-        //PlayerJump.SetActive(false);
     }
 
     // Update is called once per frame
@@ -33,16 +32,21 @@ public class JoseScript : MonoBehaviour
     {
         HandleMovement();
 
-        //
+        //Platforming jump rules
+        //Checks if grounded to set last time grounded
         if (IsGrounded())
         {
             _lastJumpTime = Time.time;
         }
+
+        //Can only jump when either grounded or within coyotetime
         if (Input.GetKeyDown(KeyCode.Space) && WasGrounded())
         {
             _startedJump = true;
             PlayerJump.SetActive(true);
         }
+
+        //Allows for altering jump height
         if (Input.GetKeyUp(KeyCode.Space) && _hasJumped)
         {
             _hasJumped = false;
@@ -53,6 +57,7 @@ public class JoseScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Movement inputs
         float xdir = Input.GetAxis("Horizontal");
         _rbody.velocity = new Vector2(xdir * Speed, _rbody.velocity.y);
 
@@ -65,16 +70,19 @@ public class JoseScript : MonoBehaviour
         }
     }
 
-    //Handles all movement for Jose
+    //Handles all movement animations for Jose
     //Currently can only move left and right, jumping later
     private void HandleMovement()
     {
+        //Facing left animations
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
             PlayerJump.GetComponent<SpriteRenderer>().flipX = true;
             PlayerWalk.GetComponent<SpriteRenderer>().flipX = true;
         }
+
+        //Facing right animations
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
@@ -82,6 +90,7 @@ public class JoseScript : MonoBehaviour
             PlayerWalk.GetComponent<SpriteRenderer>().flipX = false;
         }
 
+        //Set grounded animations
         if (!IsGrounded())
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -90,18 +99,21 @@ public class JoseScript : MonoBehaviour
         }
         else if (IsGrounded() && ((Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.LeftArrow)) || (Input.GetKey(KeyCode.RightArrow))))
         {
+            //Walking animations
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             PlayerJump.SetActive(false);
             PlayerWalk.SetActive(true);
         }
         else
         {
+            //Jumping animations
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             PlayerJump.SetActive(false);
             PlayerWalk.SetActive(false);
         }
     }
 
+    //Check if grounded by raycasting on sides of Jose
     private bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.left * .5f, Vector2.down, 0.65f, GroundLayer);
@@ -116,6 +128,7 @@ public class JoseScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Chech for which door Jose has collided with, then loads correct level
         if (collision.gameObject.CompareTag("Level2ADoor"))
         {
             Invoke(nameof(LoadLevel2A), 1);
@@ -133,6 +146,7 @@ public class JoseScript : MonoBehaviour
             Invoke(nameof(LoadLevel3B), 1);
         }
 
+        //Check if Jose has collided with an enemy or hazard
         if (collision.gameObject.CompareTag("FroggyBoi"))
         {
             FrogCollision();
@@ -141,11 +155,14 @@ public class JoseScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Way to trigger to collide with Jose as enemies
         if (collision.gameObject.CompareTag("FroggyBoi"))
         {
             FrogCollision();
         }
     }
+
+    #region Level Loading Methods for Invoking
 
     private void LoadLevel1()
     {
@@ -172,26 +189,6 @@ public class JoseScript : MonoBehaviour
         SceneManager.LoadScene("Level3BScene");
     }
 
-    private void FrogCollision()
-    {
-        int lives = PlayerPrefs.GetInt("Lives");
-        lives--;
-        PlayerPrefs.SetInt("Lives", lives);
-
-        _rbody.velocity = Vector2.zero;
-        _rbody.velocity = Vector2.up * 8f;
-        _boxCollider.enabled = false;
-
-        if (lives < 0)
-        {
-            Invoke(nameof(LoadLoseGame), 2f);
-        }
-        else
-        {
-            Invoke(SceneName, 2f);
-        }
-    }
-
     private void LoadLoseGame()
     {
         SceneManager.LoadScene("LoseGameScene");
@@ -200,5 +197,30 @@ public class JoseScript : MonoBehaviour
     private void LoadWinGame()
     {
         SceneManager.LoadScene("WinGameScene");
+    }
+
+    #endregion Level Loading Methods for Invoking
+
+    //Handles any collisions for Enemies
+    private void FrogCollision()
+    {
+        //Reduce lives by one
+        int lives = PlayerPrefs.GetInt("Lives");
+        lives--;
+        PlayerPrefs.SetInt("Lives", lives);
+
+        _rbody.velocity = Vector2.zero;
+        _rbody.velocity = Vector2.up * 8f;
+        _boxCollider.enabled = false;
+
+        //If Lives < 0 go to lose game, else reset level
+        if (lives < 0)
+        {
+            Invoke(nameof(LoadLoseGame), 2f);
+        }
+        else
+        {
+            Invoke(SceneName, 2f);
+        }
     }
 }

@@ -13,6 +13,7 @@ public class StartMenuSceneMangaerScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        //Exit app
         if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
@@ -21,6 +22,7 @@ public class StartMenuSceneMangaerScript : MonoBehaviour
 
     public void StartButtonOnClicked()
     {
+        //Set Lives to 3
         PlayerPrefs.SetInt("Lives", 3);
         SceneManager.LoadScene("Level1Scene");
     }

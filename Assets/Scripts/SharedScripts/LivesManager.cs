@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class LivesManager : MonoBehaviour
 {
     public Text Lives;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Lives.text = "Lives: " + PlayerPrefs.GetInt("Lives");
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 }

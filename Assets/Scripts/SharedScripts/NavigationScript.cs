@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Generic Script for letting scenes escape to menu
 public class NavigationScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKey(KeyCode.Escape))
         {

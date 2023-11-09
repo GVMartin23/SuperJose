@@ -20,16 +20,19 @@ public class CameraScript : MonoBehaviour
 
     private void LateUpdate()
     {
+        //Position camera
         var yPos = offset.y;
 
         if (Jose != null)
         {
             if (Jose.transform.position.x >= 45)
             {
+                //Lock camera if on right edge
                 transform.position = new Vector3(45, yPos, offset.z);
             }
             else if (Jose.transform.position.x <= -45)
             {
+                //Lock camera if on left edge
                 transform.position = new Vector3(-45, yPos, offset.z);
             }
             else

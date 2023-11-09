@@ -17,6 +17,7 @@ public class LoseGameSceneManagerScript : MonoBehaviour
 
     public void RestartOnClick()
     {
+        //Sets lives to 3
         PlayerPrefs.SetInt("Lives", 3);
         SceneManager.LoadScene("Level1Scene");
     }
