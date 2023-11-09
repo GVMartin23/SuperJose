@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1972628683325358786, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972628683325358786, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972628683325358786, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972628683325358786, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.59
+      objectReference: {fileID: 0}
     - target: {fileID: 6286127378064431264, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6894846
@@ -55,6 +71,30 @@ PrefabInstance:
     - target: {fileID: 6286127378064431264, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8497716359903440136, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8497716359903440136, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: daf6f505d3ac01140804cd04585f2c18, type: 3}
+    - target: {fileID: 8497716359903440136, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8497716359903440136, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8497716359903440136, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8497716359903440136, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 732741623
       objectReference: {fileID: 0}
     - target: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
       propertyPath: m_Name

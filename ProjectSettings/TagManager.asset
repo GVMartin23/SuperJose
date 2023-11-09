@@ -8,6 +8,7 @@ TagManager:
   - Level2ADoor
   - Level3ADoor
   - Level3BDoor
+  - FroggyBoi
   layers:
   - Default
   - TransparentFX
@@ -44,4 +45,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 882055501
+    locked: 0
+  - name: obstacles
+    uniqueID: 732741623
+    locked: 0
+  - name: grounds
+    uniqueID: 3783166687
+    locked: 0
+  - name: enemies
+    uniqueID: 2870119257
+    locked: 0
+  - name: jose
+    uniqueID: 3992749579
     locked: 0
