@@ -6,11 +6,14 @@ public class CameraScript : MonoBehaviour
 {
     public GameObject Jose;
 
-    private Vector3 offset = new Vector3(0, -1, -10);
+    private Rigidbody2D _joseRigidBody;
 
     // Start is called before the first frame update
     private void Start()
     {
+        _joseRigidBody = Jose.GetComponent<Rigidbody2D>();
+        //Set camera at correct Y value
+        transform.position = new Vector3(transform.position.x, -1, transform.position.z);
     }
 
     // Update is called once per frame
@@ -20,24 +23,16 @@ public class CameraScript : MonoBehaviour
 
     private void LateUpdate()
     {
-        //Position camera
-        var yPos = offset.y;
-
         if (Jose != null)
         {
-            if (Jose.transform.position.x >= 45)
+            var offset = transform.position.x - Jose.transform.position.x;
+            if (offset < -3 && _joseRigidBody.velocity.x > 0)
             {
-                //Lock camera if on right edge
-                transform.position = new Vector3(45, yPos, offset.z);
+                transform.position = new Vector3(Jose.transform.position.x - 2, -1, -10);
             }
-            else if (Jose.transform.position.x <= -45)
+            else if (offset > 3 && _joseRigidBody.velocity.x < 0)
             {
-                //Lock camera if on left edge
-                transform.position = new Vector3(-45, yPos, offset.z);
-            }
-            else
-            {
-                transform.position = new Vector3(Jose.transform.position.x, yPos, offset.z);
+                transform.position = new Vector3(Jose.transform.position.x + 2, -1, -10);
             }
         }
     }
