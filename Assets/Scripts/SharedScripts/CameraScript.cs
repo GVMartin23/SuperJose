@@ -13,7 +13,7 @@ public class CameraScript : MonoBehaviour
     {
         _joseRigidBody = Jose.GetComponent<Rigidbody2D>();
         //Set camera at correct Y value
-        transform.position = new Vector3(transform.position.x, -1, transform.position.z);
+        transform.position = new Vector3(_joseRigidBody.transform.position.x, -1, transform.position.z);
     }
 
     // Update is called once per frame
@@ -26,11 +26,11 @@ public class CameraScript : MonoBehaviour
         if (Jose != null)
         {
             var offset = transform.position.x - Jose.transform.position.x;
-            if (offset < -3 && _joseRigidBody.velocity.x > 0)
+            if (offset < -2 && _joseRigidBody.velocity.x > 0)
             {
                 transform.position = new Vector3(Jose.transform.position.x - 2, -1, -10);
             }
-            else if (offset > 3 && _joseRigidBody.velocity.x < 0)
+            else if (offset > 2 && _joseRigidBody.velocity.x < 0)
             {
                 transform.position = new Vector3(Jose.transform.position.x + 2, -1, -10);
             }

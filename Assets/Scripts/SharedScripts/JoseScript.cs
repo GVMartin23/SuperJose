@@ -11,6 +11,7 @@ public class JoseScript : MonoBehaviour
     public float JumpForce;
     private bool _startedJump = false;
     private bool _hasJumped = false;
+    private bool _isDead = false;
 
     public GameObject PlayerJump;
     public GameObject PlayerWalk;
@@ -57,6 +58,8 @@ public class JoseScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_isDead) return;
+
         //Movement inputs
         float xdir = Input.GetAxis("Horizontal");
         _rbody.velocity = new Vector2(xdir * Speed, _rbody.velocity.y);
@@ -204,6 +207,7 @@ public class JoseScript : MonoBehaviour
     //Handles any collisions for Enemies
     private void FrogCollision()
     {
+        _isDead = true;
         //Reduce lives by one
         int lives = PlayerPrefs.GetInt("Lives");
         lives--;
