@@ -9,6 +9,7 @@ TagManager:
   - Level3ADoor
   - Level3BDoor
   - FroggyBoi
+  - SnowMan
   layers:
   - Default
   - TransparentFX
@@ -39,9 +40,9 @@ TagManager:
   - 
   - 
   - 
+  - Enemy
   - 
-  - 
-  - 
+  - Jose
   m_SortingLayers:
   - name: Default
     uniqueID: 0
@@ -54,6 +55,12 @@ TagManager:
     locked: 0
   - name: grounds
     uniqueID: 3783166687
+    locked: 0
+  - name: foreground
+    uniqueID: 3913789675
+    locked: 0
+  - name: projectiles
+    uniqueID: 3552712421
     locked: 0
   - name: enemies
     uniqueID: 2870119257

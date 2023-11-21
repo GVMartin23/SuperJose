@@ -1333,10 +1333,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 785591208}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1447404592137823405, guid: 617ce10e8543ac74f9932b03366b1fdb, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -3999,10 +3995,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 785591208}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1447404592137823405, guid: 617ce10e8543ac74f9932b03366b1fdb, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -6549,22 +6541,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 785591208}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Size.x
-      value: 2.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Size.y
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Offset.x
-      value: -0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Offset.y
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1447404592137823405, guid: 617ce10e8543ac74f9932b03366b1fdb, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -8295,7 +8271,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -302217717
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 1237137804, guid: 3c49f4aaf77c1b84680ac545efecc98c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10803,10 +10779,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 785591208}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 31169840550492747, guid: 617ce10e8543ac74f9932b03366b1fdb, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -11086,10 +11058,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 785591208}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 31169840550492747, guid: 617ce10e8543ac74f9932b03366b1fdb, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -11597,10 +11565,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 785591208}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1447404592137823405, guid: 617ce10e8543ac74f9932b03366b1fdb, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -12095,7 +12059,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -302217717
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -510637572, guid: 4d47901e2ed0f8243bc0ce3a95dd462b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12588,10 +12552,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 785591208}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1447404592137823405, guid: 617ce10e8543ac74f9932b03366b1fdb, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -13454,7 +13414,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 465600997059690638, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 465600997059690638, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
       propertyPath: m_SortingLayerID
@@ -13516,10 +13476,6 @@ PrefabInstance:
       propertyPath: PlayerWalk
       value: 
       objectReference: {fileID: 1355285526}
-    - target: {fileID: 6083946512600900845, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
-      propertyPath: m_GravityScale
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 6952441352329799213, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
       propertyPath: m_Name
       value: Jose

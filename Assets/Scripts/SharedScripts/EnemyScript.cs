@@ -10,6 +10,7 @@ public class enemy_script : MonoBehaviour
     public LayerMask _wallLayer;
     private bool _goingRight = true;
 
+
     // Start is called before the first frame update
     private void Start()
     {

@@ -301,10 +301,6 @@ PrefabInstance:
       propertyPath: PlayerWalk
       value: 
       objectReference: {fileID: 438013482}
-    - target: {fileID: 6083946512600900845, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
-      propertyPath: m_GravityScale
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 6952441352329799213, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
       propertyPath: m_Name
       value: Jose (1)
