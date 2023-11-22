@@ -17,7 +17,7 @@ public class WinGameSceneManagerScript : MonoBehaviour
 
     public void PlayAgainOnClick()
     {
-        PlayerPrefs.SetInt("Lives", 3);
+        PlayerPrefs.SetInt("Lives", 5);
         SceneManager.LoadScene("Level1Scene");
     }
 

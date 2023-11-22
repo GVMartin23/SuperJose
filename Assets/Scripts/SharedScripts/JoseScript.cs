@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class JoseScript : MonoBehaviour
 {
     public LayerMask GroundLayer;
+    public LayerMask EnemyLayer;
     public string SceneName;
     public float Speed;
     public float JumpForce;
@@ -150,18 +151,18 @@ public class JoseScript : MonoBehaviour
         }
 
         //Check if Jose has collided with an enemy or hazard
-        if (collision.gameObject.CompareTag("FroggyBoi"))
+        if (collision.gameObject.CompareTag("FroggyBoi") || collision.gameObject.CompareTag("SnowMan"))
         {
-            FrogCollision();
+            FrogCollision(collision.gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Way to trigger to collide with Jose as enemies
-        if (collision.gameObject.CompareTag("FroggyBoi"))
+        if (collision.gameObject.CompareTag("FroggyBoi") || collision.gameObject.CompareTag("SnowMan"))
         {
-            FrogCollision();
+            FrogCollision(collision.gameObject);
         }
     }
 
@@ -205,20 +206,27 @@ public class JoseScript : MonoBehaviour
     #endregion Level Loading Methods for Invoking
 
     //Handles any collisions for Enemies
-    private void FrogCollision()
+    private void FrogCollision(GameObject enemy)
     {
+        //Default to if velocity decreasing, Jose wins
+        if (_rbody.velocity.y < 0)
+        {
+            //Kill enemy instead of Jose
+            StompEnemy(enemy);
+            return;
+        }
+
         _isDead = true;
         //Reduce lives by one
         int lives = PlayerPrefs.GetInt("Lives");
         lives--;
         PlayerPrefs.SetInt("Lives", lives);
 
-        _rbody.velocity = Vector2.zero;
         _rbody.velocity = Vector2.up * 8f;
         _boxCollider.enabled = false;
 
-        //If Lives < 0 go to lose game, else reset level
-        if (lives < 0)
+        //If Lives = 0 go to lose game, else reset level
+        if (lives <= 0)
         {
             Invoke(nameof(LoadLoseGame), 2f);
         }
@@ -226,5 +234,11 @@ public class JoseScript : MonoBehaviour
         {
             Invoke(SceneName, 2f);
         }
+    }
+
+    private void StompEnemy(GameObject enemy)
+    {
+        Destroy(enemy);
+        _rbody.AddForce(20 * JumpForce * Vector2.up);
     }
 }
