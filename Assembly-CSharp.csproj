@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\SharedScripts\NavigationScript.cs" />
     <Compile Include="Assets\Scripts\StartMenuScripts\StartMenuSceneMangaerScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\SnowManScript.cs" />
+    <Compile Include="Assets\Scripts\SharedScripts\DoorScript.cs" />
     <Compile Include="Assets\Scripts\LoseGameScripts\LoseGameSceneManagerScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\SnowBallScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\PlatformScript.cs" />
