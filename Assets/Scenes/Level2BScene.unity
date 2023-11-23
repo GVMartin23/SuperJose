@@ -2740,7 +2740,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1894798969027484068, guid: d043aedc2cc4f9141929e6f45090cc61, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1894798969027484068, guid: d043aedc2cc4f9141929e6f45090cc61, type: 3}
       propertyPath: m_Enabled
@@ -4002,7 +4002,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1894798969027484068, guid: d043aedc2cc4f9141929e6f45090cc61, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3888739204211903345, guid: d043aedc2cc4f9141929e6f45090cc61, type: 3}
       propertyPath: m_Name
