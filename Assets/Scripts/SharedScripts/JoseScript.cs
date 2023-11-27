@@ -135,7 +135,7 @@ public class JoseScript : MonoBehaviour
         //Chech for which door Jose has collided with, then loads correct level
         if (collision.gameObject.CompareTag("Level2ADoor"))
         {
-            Invoke(nameof(LoadLevel2A), 1);
+            Invoke(nameof(LoadLevel2A), 2);
         }
         if (collision.gameObject.CompareTag("Level2BDoor"))
         {
@@ -238,6 +238,9 @@ public class JoseScript : MonoBehaviour
 
     private void StompEnemy(GameObject enemy)
     {
+        //enemy.GetComponent<BoxCollider2D>().enabled = false;
+        //enemy.GetComponent<Rigidbody2D>().AddForce(20 * Vector2.up);
+        
         Destroy(enemy);
         _rbody.AddForce(20 * JumpForce * Vector2.up);
     }
