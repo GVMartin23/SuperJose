@@ -209,7 +209,7 @@ public class JoseScript : MonoBehaviour
     private void FrogCollision(GameObject enemy)
     {
         //Default to if velocity decreasing, Jose wins
-        if (_rbody.velocity.y < 0)
+        if (_rbody.velocity.y < 0.1f && (enemy.CompareTag("FroggyBoi") || enemy.CompareTag("SnowMan")))
         {
             //Kill enemy instead of Jose
             StompEnemy(enemy);
