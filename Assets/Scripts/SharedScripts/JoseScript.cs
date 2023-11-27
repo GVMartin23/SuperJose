@@ -151,7 +151,7 @@ public class JoseScript : MonoBehaviour
         }
 
         //Check if Jose has collided with an enemy or hazard
-        if (collision.gameObject.CompareTag("FroggyBoi") || collision.gameObject.CompareTag("SnowMan"))
+        if (collision.gameObject.CompareTag("FroggyBoi") || collision.gameObject.CompareTag("SnowMan") || collision.gameObject.CompareTag("NonDodgeableEnemy"))
         {
             FrogCollision(collision.gameObject);
         }
@@ -160,7 +160,7 @@ public class JoseScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Way to trigger to collide with Jose as enemies
-        if (collision.gameObject.CompareTag("FroggyBoi") || collision.gameObject.CompareTag("SnowMan"))
+        if (collision.gameObject.CompareTag("FroggyBoi") || collision.gameObject.CompareTag("SnowMan") || collision.gameObject.CompareTag("NonDodgeableEnemy"))
         {
             FrogCollision(collision.gameObject);
         }

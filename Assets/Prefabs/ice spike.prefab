@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8497716359903440136, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8497716359903440136, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
       propertyPath: m_SortingLayerID
@@ -106,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
       propertyPath: m_TagString
-      value: FroggyBoi
+      value: NonDodgeableEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
