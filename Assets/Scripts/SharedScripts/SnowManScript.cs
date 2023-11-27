@@ -50,7 +50,8 @@ public class SnowManScript : MonoBehaviour
 
         //Put Particles behind snowball depending on direction
         Vector3 rotation = SnowBall.GetComponent<ParticleSystem>().shape.rotation;
-        rotation.z = _goingRight ? 150 : 330;
+        //rotation.z = _goingRight ? 150 : 330;
+        rotation = new Vector3(0, 0, _goingRight ? 150 : 330);
         _lastShot = Time.time;
     }
 
