@@ -10,6 +10,7 @@ TagManager:
   - Level3BDoor
   - FroggyBoi
   - SnowMan
+  - NonDodgeableEnemy
   layers:
   - Default
   - TransparentFX

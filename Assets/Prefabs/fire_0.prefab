@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1839049743343944056}
   m_Layer: 0
   m_Name: fire_0
-  m_TagString: FroggyBoi
+  m_TagString: NonDodgeableEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

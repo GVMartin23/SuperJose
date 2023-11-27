@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GroundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 536870976
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 536870912
