@@ -238,7 +238,7 @@ public class JoseScript : MonoBehaviour
 
     private void StompEnemy(GameObject enemy)
     {
-        _rbody.velocity = Vector2.zero;
+        _rbody.velocity = new Vector2(_rbody.velocity.x, 0);
         
         Destroy(enemy);
         _rbody.AddForce(20 * JumpForce * Vector2.up);
