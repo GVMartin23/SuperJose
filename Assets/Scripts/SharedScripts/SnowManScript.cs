@@ -20,7 +20,7 @@ public class SnowManScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        _goingRight = true;
+        _goingRight = false;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _halfWidth = _spriteRenderer.bounds.size.x / 2;
         _halfHeight = _spriteRenderer.bounds.size.y / 2;
