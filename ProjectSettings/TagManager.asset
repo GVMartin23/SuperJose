@@ -11,6 +11,7 @@ TagManager:
   - FroggyBoi
   - SnowMan
   - NonDodgeableEnemy
+  - WallJumpable
   layers:
   - Default
   - TransparentFX
