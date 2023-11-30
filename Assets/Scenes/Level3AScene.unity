@@ -10058,7 +10058,7 @@ MonoBehaviour:
   xRightBound: 0
   yLowBound: -2
   yUpBound: 5
-  speed: 3
+  speed: 1
   range: 5
   rateOfFire: 1
   jose: {fileID: 97252206}
