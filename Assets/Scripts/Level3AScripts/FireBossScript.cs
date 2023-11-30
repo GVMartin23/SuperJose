@@ -18,6 +18,7 @@ public class FireBossScript : MonoBehaviour
     public float rateOfFire;
     public GameObject jose;
     public GameObject boss;
+    public GameObject fireball;
     private Rigidbody2D _josePos;
     private Rigidbody2D _rbody;
     private bool _isChase;
@@ -98,7 +99,47 @@ public class FireBossScript : MonoBehaviour
 
     void Chase()
     {
-        _rbody.transform.position = Vector2.MoveTowards(boss.transform.position, jose.transform.position, speed);
+        //_rbody.transform.position = Vector2.MoveTowards(boss.transform.position, jose.transform.position, speed);
+
+        System.Random rand = new System.Random();
+        float curX = _rbody.velocity.x;
+        float curY = _rbody.velocity.y;
+
+        float xVel = (float)(rand.NextDouble() * 2 - 1);
+        float yVel = (float)(rand.NextDouble() * 2 - 1);
+
+        if (boss.transform.position.y > yUpBound)
+        {
+            Vector2 tooFarUp = new Vector2(curX, -1);
+            tooFarUp.Normalize();
+            _rbody.velocity = tooFarUp * speed;
+        }
+        if (boss.transform.position.y <= yLowBound)
+        {
+            Vector2 tooFarDown = new Vector2(curX, 1);
+            tooFarDown.Normalize();
+            _rbody.velocity = tooFarDown * speed;
+        }
+        if (boss.transform.position.x > jose.transform.position.x + 8)
+        {
+            Vector2 tooFarLeft = new Vector2(1, curY);
+            tooFarLeft.Normalize();
+            _rbody.velocity = tooFarLeft * speed;
+        }
+        if (boss.transform.position.x <= jose.transform.position.x - 8)
+        {
+            Vector2 tooFarRight = new Vector2(-1, curY);
+            tooFarRight.Normalize();
+            _rbody.velocity = tooFarRight * speed;
+        }
+        else
+        {
+            Vector2 newVel = new Vector2(curX + xVel, curY + yVel);
+            newVel.Normalize();
+            _rbody.velocity = newVel * speed;
+        }
+
+
         int chance = UnityEngine.Random.Range(0, 100);
         if (chance < 2)
         {
