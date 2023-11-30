@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\WinGameScripts\WinGameSceneManagerScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\firescript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\VerticalCameraScript.cs" />
+    <Compile Include="Assets\Scripts\Level3BScripts\yetiScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\breakingPlatformScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\LivesManager.cs" />
