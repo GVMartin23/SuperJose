@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class JoseScript : MonoBehaviour
 {
     public LayerMask GroundLayer;
+    public LayerMask WallJumpLayer;
     public LayerMask EnemyLayer;
     public string SceneName;
     public float Speed;
@@ -13,6 +14,7 @@ public class JoseScript : MonoBehaviour
     private bool _startedJump = false;
     private bool _hasJumped = false;
     private bool _isDead = false;
+    private bool _goingRight = true;
 
     public GameObject PlayerJump;
     public GameObject PlayerWalk;
@@ -21,6 +23,16 @@ public class JoseScript : MonoBehaviour
 
     public float CoyoteTime;
     private float _lastJumpTime = 0;
+
+    [Header("Wall Jumping")]
+    public Transform WallCheck;
+
+    private bool _isWallTouch;
+    private bool _isSliding;
+    private bool _isWallJumping;
+    public float WallSlidingSpeed;
+    public Vector2 WallJumpForce;
+    public float WallJumpDuration;
 
     // Start is called before the first frame update
     private void Start()
@@ -42,10 +54,9 @@ public class JoseScript : MonoBehaviour
         }
 
         //Can only jump when either grounded or within coyotetime
-        if (Input.GetKeyDown(KeyCode.Space) && WasGrounded())
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             _startedJump = true;
-            PlayerJump.SetActive(true);
         }
 
         //Allows for altering jump height
@@ -63,15 +74,46 @@ public class JoseScript : MonoBehaviour
 
         //Movement inputs
         float xdir = Input.GetAxis("Horizontal");
-        _rbody.velocity = new Vector2(xdir * Speed, _rbody.velocity.y);
 
-        if (_startedJump)
+        if (_startedJump && WasGrounded())
         {
-            var yforce = Vector2.up * JumpForce;
-            _rbody.velocity += yforce;
+            PlayerJump.SetActive(true);
+            _rbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             _startedJump = false;
             _hasJumped = true;
         }
+
+        //All Wall Jumping in method below found at https://www.youtube.com/watch?v=sfDnN-Im7rY
+        _isWallTouch = Physics2D.OverlapBox(WallCheck.position, new Vector2(.3f, .5f), 0, WallJumpLayer);
+
+        _isSliding = _isWallTouch && !IsGrounded() && xdir != 0;
+
+        if (_isSliding)
+        {
+            _rbody.velocity = new Vector2(_rbody.velocity.x, Mathf.Clamp(_rbody.velocity.y, -WallSlidingSpeed, float.MaxValue));
+        }
+
+        if (_isSliding && _startedJump)
+        {
+            _isWallJumping = true;
+            Invoke(nameof(StopWallJump), WallJumpDuration);
+        }
+
+        if (_isWallJumping && !_hasJumped)
+        {
+            _rbody.velocity = new Vector2(-xdir * WallJumpForce.x, WallJumpForce.y);
+            _startedJump = false;
+            _hasJumped = true;
+        }
+        else if (!_isWallJumping)
+        {
+            _rbody.velocity = new Vector2(xdir * Speed, _rbody.velocity.y);
+        }
+    }
+
+    private void StopWallJump()
+    {
+        _isWallJumping = false;
     }
 
     //Handles all movement animations for Jose
@@ -79,19 +121,17 @@ public class JoseScript : MonoBehaviour
     private void HandleMovement()
     {
         //Facing left animations
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow) && !_goingRight))
         {
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
-            PlayerJump.GetComponent<SpriteRenderer>().flipX = true;
-            PlayerWalk.GetComponent<SpriteRenderer>().flipX = true;
+            _goingRight = true;
+            Flip();
         }
 
         //Facing right animations
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow) && _goingRight))
         {
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
-            PlayerJump.GetComponent<SpriteRenderer>().flipX = false;
-            PlayerWalk.GetComponent<SpriteRenderer>().flipX = false;
+            _goingRight = false;
+            Flip();
         }
 
         //Set grounded animations
@@ -101,7 +141,7 @@ public class JoseScript : MonoBehaviour
             PlayerJump.SetActive(true);
             PlayerWalk.SetActive(false);
         }
-        else if (IsGrounded() && ((Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.LeftArrow)) || (Input.GetKey(KeyCode.RightArrow))))
+        else if (IsGrounded() && (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.LeftArrow)) || (Input.GetKey(KeyCode.RightArrow))))
         {
             //Walking animations
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -117,11 +157,18 @@ public class JoseScript : MonoBehaviour
         }
     }
 
+    private void Flip()
+    {
+        gameObject.GetComponent<SpriteRenderer>().flipX = _goingRight;
+        PlayerJump.GetComponent<SpriteRenderer>().flipX = _goingRight;
+        PlayerWalk.GetComponent<SpriteRenderer>().flipX = _goingRight;
+    }
+
     //Check if grounded by raycasting on sides of Jose
     private bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.left * .5f, Vector2.down, 0.65f, GroundLayer);
-        RaycastHit2D hit2 = Physics2D.Raycast(transform.position + Vector3.right * .5f, Vector2.down, 0.65f, GroundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + (Vector3.left * .4f), Vector2.down, 0.65f, GroundLayer);
+        RaycastHit2D hit2 = Physics2D.Raycast(transform.position + (Vector3.right * .4f), Vector2.down, 0.65f, GroundLayer);
         return hit.collider != null || hit2.collider != null;
     }
 
@@ -239,7 +286,7 @@ public class JoseScript : MonoBehaviour
     private void StompEnemy(GameObject enemy)
     {
         _rbody.velocity = new Vector2(_rbody.velocity.x, 0);
-        
+
         Destroy(enemy);
         _rbody.AddForce(20 * JumpForce * Vector2.up);
     }
