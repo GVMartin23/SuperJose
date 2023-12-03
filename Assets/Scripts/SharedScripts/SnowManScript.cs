@@ -49,9 +49,7 @@ public class SnowManScript : MonoBehaviour
         SnowBall.GetComponent<Rigidbody2D>().velocity = new Vector2(ShootSpeed * direction, 0);
 
         //Put Particles behind snowball depending on direction
-        Vector3 rotation = SnowBall.GetComponent<ParticleSystem>().shape.rotation;
-        //rotation.z = _goingRight ? 150 : 330;
-        rotation = new Vector3(0, 0, _goingRight ? 150 : 330);
+        SnowBall.transform.eulerAngles = new Vector3(0, 0, _goingRight ? 0 : 180);
         _lastShot = Time.time;
     }
 
