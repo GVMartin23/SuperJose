@@ -377,8 +377,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ice slide (12)
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+=======
     m_RemovedComponents:
     - {fileID: 1972628683325358786, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+>>>>>>> 6a4fc06d0ada284c7cf9406101b2fcfb4491cca0
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -528,6 +536,8 @@ GameObject:
   m_Component:
   - component: {fileID: 125984272}
   - component: {fileID: 125984271}
+  - component: {fileID: 125984274}
+  - component: {fileID: 125984273}
   m_Layer: 0
   m_Name: yeti
   m_TagString: Untagged
@@ -596,12 +606,45 @@ Transform:
   m_GameObject: {fileID: 125984270}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.64, y: 39.556, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 10.36, y: 40.73, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &125984273
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125984270}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b315aad0622cee04189ff0bf25ba19c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &125984274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125984270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e2b21c7540bf3409ff13b11da73f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &143342911 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
@@ -1146,112 +1189,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1473720823}
   m_SourcePrefab: {fileID: 100100000, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
---- !u!1 &430253402
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 430253405}
-  - component: {fileID: 430253404}
-  - component: {fileID: 430253403}
-  m_Layer: 0
-  m_Name: jump_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!95 &430253403
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 430253402}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8940f0ada89993e4196a14c69c639e51, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!212 &430253404
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 430253402}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -510637572, guid: 4d47901e2ed0f8243bc0ce3a95dd462b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 3.2, y: 3.17}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &430253405
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 430253402}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 774756441}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &520329275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1840,21 +1777,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4974832958050640393, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
-      propertyPath: JumpForce
-      value: 14
+      propertyPath: SceneName
+      value: LoadLevel3B
       objectReference: {fileID: 0}
-    - target: {fileID: 4974832958050640393, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
-      propertyPath: CoyoteTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4974832958050640393, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
-      propertyPath: PlayerJump
-      value: 
-      objectReference: {fileID: 430253402}
-    - target: {fileID: 4974832958050640393, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
-      propertyPath: PlayerWalk
-      value: 
-      objectReference: {fileID: 1207779641}
     - target: {fileID: 6952441352329799213, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
       propertyPath: m_Name
       value: Jose
@@ -1865,20 +1790,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3593450535095537001, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 430253405}
-    - targetCorrespondingSourceObject: {fileID: 3593450535095537001, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1207779644}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
---- !u!4 &774756441 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3593450535095537001, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
-  m_PrefabInstance: {fileID: 774756440}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &774756442 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6952441352329799213, guid: bbb40a19dc2c6394797b3f7dc8b9eaf8, type: 3}
@@ -2040,8 +1954,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ice slide (10)
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+=======
     m_RemovedComponents:
     - {fileID: 1972628683325358786, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+>>>>>>> 6a4fc06d0ada284c7cf9406101b2fcfb4491cca0
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3169,112 +3091,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7745e2dc981db741a4fdd72b3ca52da, type: 3}
---- !u!1 &1207779641
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1207779644}
-  - component: {fileID: 1207779643}
-  - component: {fileID: 1207779642}
-  m_Layer: 0
-  m_Name: jose walking_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!95 &1207779642
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207779641}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5d22660cd5e53f149bde62e83c8b8b22, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!212 &1207779643
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207779641}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1237137804, guid: 3c49f4aaf77c1b84680ac545efecc98c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 3.2, y: 3.17}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1207779644
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207779641}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 774756441}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1243433054 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
@@ -4294,8 +4110,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ice slide (8)
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+=======
     m_RemovedComponents:
     - {fileID: 1972628683325358786, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+>>>>>>> 6a4fc06d0ada284c7cf9406101b2fcfb4491cca0
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -5105,8 +4929,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ice slide (11)
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+=======
     m_RemovedComponents:
     - {fileID: 1972628683325358786, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+>>>>>>> 6a4fc06d0ada284c7cf9406101b2fcfb4491cca0
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
