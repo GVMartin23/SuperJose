@@ -10,7 +10,6 @@ public class enemy_script : MonoBehaviour
     public LayerMask _wallLayer;
     private bool _goingRight = true;
 
-
     // Start is called before the first frame update
     private void Start()
     {
@@ -33,12 +32,12 @@ public class enemy_script : MonoBehaviour
         if (_goingRight)
         {
             _rbody.velocity = new Vector2(enemySpeed, _rbody.velocity.y);
-            gameObject.GetComponent<SpriteRenderer>().flipX = !_goingRight;
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
         else
         {
             _rbody.velocity = new Vector2(-enemySpeed, _rbody.velocity.y);
-            gameObject.GetComponent<SpriteRenderer>().flipX = !_goingRight;
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 }
