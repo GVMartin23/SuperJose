@@ -377,8 +377,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ice slide (12)
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+=======
     m_RemovedComponents:
     - {fileID: 1972628683325358786, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+>>>>>>> 6a4fc06d0ada284c7cf9406101b2fcfb4491cca0
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1946,8 +1954,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ice slide (10)
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+=======
     m_RemovedComponents:
     - {fileID: 1972628683325358786, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+>>>>>>> 6a4fc06d0ada284c7cf9406101b2fcfb4491cca0
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4094,8 +4110,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ice slide (8)
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+=======
     m_RemovedComponents:
     - {fileID: 1972628683325358786, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+>>>>>>> 6a4fc06d0ada284c7cf9406101b2fcfb4491cca0
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4905,8 +4929,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ice slide (11)
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 8534499057841157248, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+=======
     m_RemovedComponents:
     - {fileID: 1972628683325358786, guid: 171dbf5323f1b6d48aedb745248927ad, type: 3}
+>>>>>>> 6a4fc06d0ada284c7cf9406101b2fcfb4491cca0
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

@@ -15,6 +15,8 @@ public class JoseScript : MonoBehaviour
     private bool _hasJumped = false;
     private bool _isDead = false;
     private bool _goingRight = true;
+    private bool _canStartJump = true;
+    private bool _inWallJump = false;
 
     public GameObject PlayerJump;
     public GameObject PlayerWalk;
@@ -25,8 +27,9 @@ public class JoseScript : MonoBehaviour
     private float _lastJumpTime = 0;
 
     [Header("Wall Jumping")]
-    public Transform WallCheck;
+    public Transform WallCheckRight;
 
+    public Transform WallCheckLeft;
     private bool _isWallTouch;
     private bool _isSliding;
     private bool _isWallJumping;
@@ -54,9 +57,10 @@ public class JoseScript : MonoBehaviour
         }
 
         //Can only jump when either grounded or within coyotetime
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && _canStartJump)
         {
             _startedJump = true;
+            _canStartJump = false;
         }
 
         //Allows for altering jump height
@@ -75,16 +79,19 @@ public class JoseScript : MonoBehaviour
         //Movement inputs
         float xdir = Input.GetAxis("Horizontal");
 
-        if (_startedJump && WasGrounded())
+        if (_startedJump && WasGrounded() && !_inWallJump)
         {
             PlayerJump.SetActive(true);
             _rbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             _startedJump = false;
             _hasJumped = true;
+            _canStartJump = true;
         }
 
         //All Wall Jumping in method below found at https://www.youtube.com/watch?v=sfDnN-Im7rY
-        _isWallTouch = Physics2D.OverlapBox(WallCheck.position, new Vector2(.3f, .5f), 0, WallJumpLayer);
+        bool isWallTouchRight = Physics2D.OverlapBox(WallCheckRight.position, new Vector2(.3f, .5f), 0, WallJumpLayer);
+        bool isWallTouchLeft = Physics2D.OverlapBox(WallCheckLeft.position, new Vector2(.3f, .5f), 0, WallJumpLayer);
+        _isWallTouch = isWallTouchLeft || isWallTouchRight;
 
         _isSliding = _isWallTouch && !IsGrounded() && xdir != 0;
 
@@ -99,13 +106,20 @@ public class JoseScript : MonoBehaviour
             Invoke(nameof(StopWallJump), WallJumpDuration);
         }
 
-        if (_isWallJumping && !_hasJumped)
+        //Used to make sure the player is looking at the wall when kicking
+        //Should prevent spamming spacebar to wall jump
+        bool movingRight = xdir == 1;
+        bool canWallJump = _isWallJumping && !_hasJumped && ((movingRight && isWallTouchRight) || (!movingRight && isWallTouchLeft));
+
+        if (canWallJump)
         {
+            xdir = isWallTouchLeft ? -1 : 1; //Was weird when looking away from wall sliding on
             _rbody.velocity = new Vector2(-xdir * WallJumpForce.x, WallJumpForce.y);
             _startedJump = false;
             _hasJumped = true;
+            _inWallJump = true;
         }
-        else if (!_isWallJumping)
+        else if (!_isWallJumping && !_inWallJump)
         {
             _rbody.velocity = new Vector2(xdir * Speed, _rbody.velocity.y);
         }
@@ -114,6 +128,13 @@ public class JoseScript : MonoBehaviour
     private void StopWallJump()
     {
         _isWallJumping = false;
+        _canStartJump = true;
+        Invoke(nameof(StopInWallJump), .15f);
+    }
+
+    private void StopInWallJump()
+    {
+        _inWallJump = false;
     }
 
     //Handles all movement animations for Jose
@@ -141,7 +162,7 @@ public class JoseScript : MonoBehaviour
             PlayerJump.SetActive(true);
             PlayerWalk.SetActive(false);
         }
-        else if (IsGrounded() && (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.LeftArrow)) || (Input.GetKey(KeyCode.RightArrow))))
+        else if ((IsGrounded() || _isSliding) && (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.LeftArrow)) || (Input.GetKey(KeyCode.RightArrow))))
         {
             //Walking animations
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -179,6 +200,9 @@ public class JoseScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        _canStartJump = true;
+        Invoke(nameof(StopInWallJump), .15f);
+
         //Chech for which door Jose has collided with, then loads correct level
         if (collision.gameObject.CompareTag("Level2ADoor"))
         {
@@ -198,7 +222,7 @@ public class JoseScript : MonoBehaviour
         }
 
         //Check if Jose has collided with an enemy or hazard
-        if (collision.gameObject.CompareTag("FroggyBoi") || collision.gameObject.CompareTag("SnowMan") || collision.gameObject.CompareTag("NonDodgeableEnemy"))
+        if (collision.gameObject.CompareTag("FroggyBoi") || collision.gameObject.CompareTag("SnowMan") || collision.gameObject.CompareTag("NonDodgeableEnemy") || collision.gameObject.CompareTag("firebox"))
         {
             FrogCollision(collision.gameObject);
         }
@@ -207,7 +231,7 @@ public class JoseScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Way to trigger to collide with Jose as enemies
-        if (collision.gameObject.CompareTag("FroggyBoi") || collision.gameObject.CompareTag("SnowMan") || collision.gameObject.CompareTag("NonDodgeableEnemy"))
+        if (collision.gameObject.CompareTag("FroggyBoi") || collision.gameObject.CompareTag("SnowMan") || collision.gameObject.CompareTag("NonDodgeableEnemy") || collision.gameObject.CompareTag("firebox"))
         {
             FrogCollision(collision.gameObject);
         }
@@ -256,7 +280,7 @@ public class JoseScript : MonoBehaviour
     private void FrogCollision(GameObject enemy)
     {
         //Default to if velocity decreasing, Jose wins
-        if (_rbody.velocity.y < -0.1f && (enemy.CompareTag("FroggyBoi") || enemy.CompareTag("SnowMan")))
+        if (_rbody.velocity.y < -0.01f && (enemy.CompareTag("FroggyBoi") || enemy.CompareTag("SnowMan")))
         {
             //Kill enemy instead of Jose
             StompEnemy(enemy);

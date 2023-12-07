@@ -59,9 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Level3AScripts\FireBossScript.cs" />
+    <Compile Include="Assets\Scripts\Level3AScripts\FireCannonScript.cs" />
     <Compile Include="Assets\Scripts\WinGameScripts\WinGameSceneManagerScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\firescript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\VerticalCameraScript.cs" />
+    <Compile Include="Assets\Scripts\Level3AScripts\ManagerScript.cs" />
     <Compile Include="Assets\Scripts\Level3BScripts\yetiScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\breakingPlatformScript.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Assets\Scripts\SharedScripts\EnemyScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\NavigationScript.cs" />
     <Compile Include="Assets\Scripts\StartMenuScripts\StartMenuSceneMangaerScript.cs" />
+    <Compile Include="Assets\Scripts\Level3AScripts\fireballScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\SnowManScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\DoorScript.cs" />
     <Compile Include="Assets\Scripts\LoseGameScripts\LoseGameSceneManagerScript.cs" />
