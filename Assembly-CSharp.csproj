@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\SharedScripts\EnemyScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\NavigationScript.cs" />
     <Compile Include="Assets\Scripts\StartMenuScripts\StartMenuSceneMangaerScript.cs" />
+    <Compile Include="Assets\Scripts\Level3AScripts\fireballScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\SnowManScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\DoorScript.cs" />
     <Compile Include="Assets\Scripts\LoseGameScripts\LoseGameSceneManagerScript.cs" />

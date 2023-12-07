@@ -12,6 +12,7 @@ TagManager:
   - SnowMan
   - NonDodgeableEnemy
   - WallJumpable
+  - firebox
   layers:
   - Default
   - TransparentFX

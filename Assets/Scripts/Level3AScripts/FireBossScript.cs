@@ -19,15 +19,12 @@ public class FireBossScript : MonoBehaviour
     public GameObject jose;
     public GameObject boss;
     public GameObject fireball;
-    private Rigidbody2D _josePos;
     private Rigidbody2D _rbody;
-    private bool _isChase;
 
     // Start is called before the first frame update
     void Start()
     {
         _rbody = boss.GetComponent<Rigidbody2D>();
-        _josePos = jose.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -35,115 +32,107 @@ public class FireBossScript : MonoBehaviour
     {
         var distance = Math.Abs(Vector2.Distance(boss.transform.position, jose.transform.position));
 
-        if (_isChase == false && distance < range)
+        if ( distance < range && jose.transform.position.x < 8)
         {
-        //  _isChase = true;
             Chase();
-        }
-        else if (distance >= range)
-        {
-            _isChase = false;
-            Wander();
         }
     }
 
     void Shoot()
     {
-
-    }
-
-    void Wander()
-    {
-        int chance = UnityEngine.Random.Range(0, 1000);
-        if (chance < 2 )
-        {
-            System.Random rand = new System.Random();
-            float curX = _rbody.velocity.x;
-            float curY = _rbody.velocity.y;
-
-            float xVel = (float)(rand.NextDouble() * 2 - 1);
-            float yVel = (float)(rand.NextDouble() * 2 - 1);
-
-            if (boss.transform.position.y > yUpBound)
-            {
-                Vector2 tooFarUp = new Vector2(curX, -1);
-                tooFarUp.Normalize();
-                _rbody.velocity = tooFarUp * speed;
-            }
-            if (boss.transform.position.y <= yLowBound)
-            {
-                Vector2 tooFarDown = new Vector2(curX, 1);
-                tooFarDown.Normalize();
-                _rbody.velocity = tooFarDown * speed;
-            }
-            if (boss.transform.position.x > xRightBound)
-            {
-                Vector2 tooFarLeft = new Vector2(1, curY);
-                tooFarLeft.Normalize();
-                _rbody.velocity = tooFarLeft * speed;
-            }
-            if (boss.transform.position.x <= xLeftBound)
-            {
-                Vector2 tooFarRight = new Vector2(-1, curY);
-                tooFarRight.Normalize();
-                _rbody.velocity = tooFarRight * speed;
-            }
-            else
-            {
-                Vector2 newVel = new Vector2(curX + xVel, curY + yVel);
-                newVel.Normalize();
-                _rbody.velocity = newVel * speed;
-            }
-        }
+        GameObject _fireB = Instantiate(fireball, _rbody.transform.position, Quaternion.identity);
+        Rigidbody2D _fireBB = _fireB.GetComponent<Rigidbody2D>();
+        Vector3 aim = jose.transform.position - transform.position;
+        Vector3 aimNormalized = aim.normalized;
+        _fireBB.velocity = aimNormalized * 4;
     }
 
     void Chase()
     {
-        //_rbody.transform.position = Vector2.MoveTowards(boss.transform.position, jose.transform.position, speed);
-
         System.Random rand = new System.Random();
-        float curX = _rbody.velocity.x;
-        float curY = _rbody.velocity.y;
 
-        float xVel = (float)(rand.NextDouble() * 2 - 1);
+        float xDiff = jose.transform.position.x - transform.position.x;
+        float curY = _rbody.velocity.y;
         float yVel = (float)(rand.NextDouble() * 2 - 1);
 
         if (boss.transform.position.y > yUpBound)
         {
-            Vector2 tooFarUp = new Vector2(curX, -1);
-            tooFarUp.Normalize();
-            _rbody.velocity = tooFarUp * speed;
+            Vector3 direction = jose.transform.position - transform.position;
+            Vector3 normalizedDirection = direction.normalized;
+            Vector3 velocity = normalizedDirection * speed;
+            _rbody.velocity = velocity;
         }
-        if (boss.transform.position.y <= yLowBound)
+        else if (boss.transform.position.y < yLowBound)
         {
-            Vector2 tooFarDown = new Vector2(curX, 1);
-            tooFarDown.Normalize();
-            _rbody.velocity = tooFarDown * speed;
-        }
-        if (boss.transform.position.x > jose.transform.position.x + 8)
-        {
-            Vector2 tooFarLeft = new Vector2(1, curY);
-            tooFarLeft.Normalize();
-            _rbody.velocity = tooFarLeft * speed;
-        }
-        if (boss.transform.position.x <= jose.transform.position.x - 8)
-        {
-            Vector2 tooFarRight = new Vector2(-1, curY);
-            tooFarRight.Normalize();
-            _rbody.velocity = tooFarRight * speed;
-        }
-        else
-        {
-            Vector2 newVel = new Vector2(curX + xVel, curY + yVel);
+            Vector2 newVel = new Vector2(xDiff, 1);
             newVel.Normalize();
             _rbody.velocity = newVel * speed;
         }
+        else
+        {
+             Vector2 newVel = new Vector2(xDiff, curY + yVel);
+             newVel.Normalize();
+             _rbody.velocity = newVel * speed;
+        }
 
-
-        int chance = UnityEngine.Random.Range(0, 100);
-        if (chance < 2)
+        int chance = UnityEngine.Random.Range(0, 1000);
+        if (chance < 3)
         {
             Shoot();
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+//void Wander()
+//{
+//    int chance = UnityEngine.Random.Range(0, 1000);
+//    if (chance < 2)
+//    {
+//        System.Random rand = new System.Random();
+//        float curX = _rbody.velocity.x;
+//        float curY = _rbody.velocity.y;
+//
+//        float xVel = (float)(rand.NextDouble() * 2 - 1);
+//        float yVel = (float)(rand.NextDouble() * 2 - 1);
+//
+//        if (boss.transform.position.y > yUpBound)
+//        {
+//            Vector2 tooFarUp = new Vector2(curX, -1);
+//            tooFarUp.Normalize();
+//            _rbody.velocity = tooFarUp * speed;
+//        }
+//        if (boss.transform.position.y <= yLowBound)
+//        {
+//            Vector2 tooFarDown = new Vector2(curX, 1);
+//            tooFarDown.Normalize();
+//            _rbody.velocity = tooFarDown * speed;
+//        }
+//        if (boss.transform.position.x > xRightBound)
+//        {
+//            Vector2 tooFarLeft = new Vector2(1, curY);
+//            tooFarLeft.Normalize();
+//            _rbody.velocity = tooFarLeft * speed;
+//        }
+//        if (boss.transform.position.x <= xLeftBound)
+//        {
+//            Vector2 tooFarRight = new Vector2(-1, curY);
+//            tooFarRight.Normalize();
+//            _rbody.velocity = tooFarRight * speed;
+//        }
+//        else
+//        {
+//            Vector2 newVel = new Vector2(curX + xVel, curY + yVel);
+//            newVel.Normalize();
+//            _rbody.velocity = newVel * speed;
+//        }
+//    }
+//}
