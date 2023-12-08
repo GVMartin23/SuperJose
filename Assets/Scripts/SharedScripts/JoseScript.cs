@@ -13,7 +13,6 @@ public class JoseScript : MonoBehaviour
     public float JumpForce;
     private bool _startedJump = false;
     private bool _hasJumped = false;
-    private bool _isDead = false;
     private bool _goingRight = true;
     private bool _canStartJump = true;
     private bool _inWallJump = false;
@@ -25,6 +24,7 @@ public class JoseScript : MonoBehaviour
 
     public float CoyoteTime;
     private float _lastJumpTime = 0;
+    public bool _isDead = false;
 
     [Header("Wall Jumping")]
     public Transform WallCheckRight;
