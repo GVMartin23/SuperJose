@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\SharedScripts\SnowBallScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\PlatformScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\JoseScript.cs" />
+    <Compile Include="Assets\Scripts\SharedScripts\PowerBoxScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

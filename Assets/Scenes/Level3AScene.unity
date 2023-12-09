@@ -8394,8 +8394,9 @@ GameObject:
   - component: {fileID: 1006023477}
   - component: {fileID: 1006023476}
   - component: {fileID: 1006023479}
+  - component: {fileID: 1006023480}
   m_Layer: 0
-  m_Name: powerbox_0 (1)
+  m_Name: powerbox
   m_TagString: Level3ADoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8534,6 +8535,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1006023480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006023475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18512f22a876d874189f4297cefadc12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1009481057
 PrefabInstance:
   m_ObjectHideFlags: 0
