@@ -1466,11 +1466,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5361834642807798372, guid: 949749c09c46c2f4d9fde2e0f14c8821, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.66
+      value: -5.48
       objectReference: {fileID: 0}
     - target: {fileID: 5361834642807798372, guid: 949749c09c46c2f4d9fde2e0f14c8821, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.24
+      value: 26.17
       objectReference: {fileID: 0}
     - target: {fileID: 5361834642807798372, guid: 949749c09c46c2f4d9fde2e0f14c8821, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2780,7 +2780,7 @@ GameObject:
   - component: {fileID: 902905866}
   m_Layer: 0
   m_Name: SNOWEND
-  m_TagString: Untagged
+  m_TagString: SNOWEND
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
