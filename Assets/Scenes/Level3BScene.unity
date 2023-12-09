@@ -5758,7 +5758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5971204000745626926, guid: 7322a9c2ccd953545a3ad535b9a0e59a, type: 3}
       propertyPath: m_TagString
-      value: Level3ADoor
+      value: WinGame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

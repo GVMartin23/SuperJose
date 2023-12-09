@@ -20470,6 +20470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: powerbox
       objectReference: {fileID: 0}
+    - target: {fileID: 5971204000745626926, guid: 7322a9c2ccd953545a3ad535b9a0e59a, type: 3}
+      propertyPath: m_TagString
+      value: WinGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

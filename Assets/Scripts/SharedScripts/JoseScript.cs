@@ -37,9 +37,18 @@ public class JoseScript : MonoBehaviour
     public Vector2 WallJumpForce;
     public float WallJumpDuration;
 
+    AudioSource _audioSource;
+    public AudioClip winGame;
+    public AudioClip loseGame;
+    public AudioClip die;
+    public AudioClip finishLevel;
+    public AudioClip jump;
+    bool stopMusic = false;
+
     // Start is called before the first frame update
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         _rbody = GetComponent<Rigidbody2D>();
         _boxCollider = GetComponent<BoxCollider2D>();
     }
@@ -82,6 +91,7 @@ public class JoseScript : MonoBehaviour
         if (_startedJump && WasGrounded() && !_inWallJump)
         {
             PlayerJump.SetActive(true);
+            _audioSource.PlayOneShot(jump);
             _rbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             _startedJump = false;
             _hasJumped = true;
@@ -206,19 +216,35 @@ public class JoseScript : MonoBehaviour
         //Chech for which door Jose has collided with, then loads correct level
         if (collision.gameObject.CompareTag("Level2ADoor"))
         {
+            stopMusic = true;
+            _goingRight = false;
+            _audioSource.PlayOneShot(finishLevel);
             Invoke(nameof(LoadLevel2A), 2);
         }
         if (collision.gameObject.CompareTag("Level2BDoor"))
         {
-            Invoke(nameof(LoadLevel2B), 1);
+            stopMusic = true;
+            _audioSource.PlayOneShot(finishLevel);
+            Invoke(nameof(LoadLevel2B), 2);
         }
         if (collision.gameObject.CompareTag("Level3ADoor"))
         {
-            Invoke(nameof(LoadLevel3A), 1);
+            stopMusic = true;
+            _audioSource.PlayOneShot(finishLevel);
+            _goingRight = false;
+            Invoke(nameof(LoadLevel3A), 2);
         }
         if (collision.gameObject.CompareTag("Level3BDoor"))
         {
-            Invoke(nameof(LoadLevel3B), 1);
+            stopMusic = true;
+            _audioSource.PlayOneShot(finishLevel);
+            Invoke(nameof(LoadLevel3B), 2);
+        }
+        if (collision.gameObject.CompareTag("WinGame"))
+        {
+            stopMusic = true;
+            _audioSource.PlayOneShot(winGame);
+            Invoke(nameof(LoadWinGame), 3);
         }
 
         //Check if Jose has collided with an enemy or hazard
@@ -256,7 +282,7 @@ public class JoseScript : MonoBehaviour
 
     private void LoadLevel3A()
     {
-        SceneManager.LoadScene("WinGameScene");
+        SceneManager.LoadScene("Level3AScene");
     }
 
     private void LoadLevel3B()
@@ -287,6 +313,8 @@ public class JoseScript : MonoBehaviour
             return;
         }
 
+        _audioSource.PlayOneShot(die);
+
         _isDead = true;
         //Reduce lives by one
         int lives = PlayerPrefs.GetInt("Lives");
@@ -299,6 +327,9 @@ public class JoseScript : MonoBehaviour
         //If Lives = 0 go to lose game, else reset level
         if (lives <= 0)
         {
+            stopMusic = true;
+            _audioSource.PlayOneShot(loseGame);
+
             Invoke(nameof(LoadLoseGame), 2f);
         }
         else
