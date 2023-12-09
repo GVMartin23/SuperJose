@@ -6,9 +6,14 @@ public class fireballScript : MonoBehaviour
 {
     Rigidbody2D _rbody;
 
+    AudioSource _audiosource;
+
     // Start is called before the first frame update
     void Start()
     {
+        _audiosource = GetComponent<AudioSource>(); 
+        _audiosource.Play();
+
         _rbody = GetComponent<Rigidbody2D>();   
     }
 

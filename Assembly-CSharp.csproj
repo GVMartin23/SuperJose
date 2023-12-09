@@ -70,7 +70,6 @@
     <Compile Include="Assets\Scripts\SharedScripts\breakingPlatformScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\LivesManager.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\EnemyScript.cs" />
-    <Compile Include="Assets\Scripts\MenuManagerMusic.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\NavigationScript.cs" />
     <Compile Include="Assets\Scripts\StartMenuScripts\StartMenuSceneMangaerScript.cs" />
     <Compile Include="Assets\Scripts\Level3AScripts\fireballScript.cs" />

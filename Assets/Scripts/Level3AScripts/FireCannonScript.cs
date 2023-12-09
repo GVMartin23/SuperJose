@@ -11,12 +11,18 @@ public class FireCannonScript : MonoBehaviour
     string tagToFind = "firebox";
     private List<GameObject> colliderList = new List<GameObject> ();
 
+    public AudioClip whoosh;
+    AudioSource _audiosource;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _fire = true;
         PopulateGameObjectsList();
+
+        _audiosource = GetComponent<AudioSource> ();
+        _audiosource.volume = 0.1f;
     }
 
     // Update is called once per frame
@@ -25,6 +31,7 @@ public class FireCannonScript : MonoBehaviour
         if (_fire == true)
         {
             _fire = false;
+            Invoke("Whoosh", 1.3f);
             Invoke("Fire", 2);
         }
     }
@@ -59,5 +66,10 @@ public class FireCannonScript : MonoBehaviour
     {
         GameObject[] foundObjects = GameObject.FindGameObjectsWithTag(tagToFind);
         colliderList.AddRange(foundObjects);
+    }
+
+    void Whoosh()
+    {
+        _audiosource.PlayOneShot(whoosh);
     }
 }
