@@ -23,7 +23,7 @@ public class yetiScript : MonoBehaviour
         throwTime += Time.deltaTime;
 
         //Invoke("ThrowSnowBall", 2.5f);
-        if (throwTime > 3f && !animator.GetBool("canThrow"))
+        if (throwTime > 9f && !animator.GetBool("canThrow"))
         {
             animator.SetBool("canThrow", true);
             Invoke("ThrowSnowBall", 1.15f);
@@ -34,7 +34,7 @@ public class yetiScript : MonoBehaviour
     void ThrowSnowBall()
     {
         var snoowball = Instantiate(snowBallPrefab,new Vector3(7.34f,39.5f,0),Quaternion.identity);
-        snoowball.GetComponent<Rigidbody2D>().AddForce(new Vector3(10, 0, 0));
+        //snoowball.GetComponent<Rigidbody2D>().AddForce(new Vector3(-5, 0, 0));
         animator.SetBool("canThrow", false);
         
     }
