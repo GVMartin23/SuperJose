@@ -14,8 +14,7 @@ public class yetiScript : MonoBehaviour
     {
         throwTime = 0f;
         animator = GetComponent<Animator>();
-        
-        
+        //Invoke("ThrowSnowBall", 1.15f);
     }
 
     // Update is called once per frame
@@ -24,9 +23,10 @@ public class yetiScript : MonoBehaviour
         throwTime += Time.deltaTime;
 
         //Invoke("ThrowSnowBall", 2.5f);
-        if (throwTime > 2.66f)
+        if (throwTime > 3f && !animator.GetBool("canThrow"))
         {
-            ThrowSnowBall();
+            animator.SetBool("canThrow", true);
+            Invoke("ThrowSnowBall", 1.15f);
             throwTime = 0f;
         }
     }
@@ -35,6 +35,7 @@ public class yetiScript : MonoBehaviour
     {
         var snoowball = Instantiate(snowBallPrefab,new Vector3(7.34f,39.5f,0),Quaternion.identity);
         snoowball.GetComponent<Rigidbody2D>().AddForce(new Vector3(10, 0, 0));
+        animator.SetBool("canThrow", false);
         
     }
 
