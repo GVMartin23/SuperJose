@@ -1771,6 +1771,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'box '
       objectReference: {fileID: 0}
+    - target: {fileID: 4906801489814246820, guid: 0093f6c19111a22408d916e1ed85f670, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5004221796936652991, guid: 0093f6c19111a22408d916e1ed85f670, type: 3}
       propertyPath: m_Color.b
       value: 0.990566
@@ -1821,6 +1825,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6245548521374226349, guid: 0093f6c19111a22408d916e1ed85f670, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8545179380981237202, guid: 0093f6c19111a22408d916e1ed85f670, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4736,7 +4744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5971204000745626926, guid: 7322a9c2ccd953545a3ad535b9a0e59a, type: 3}
       propertyPath: m_TagString
-      value: Finish
+      value: Level3ADoor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
