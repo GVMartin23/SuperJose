@@ -43,6 +43,7 @@ public class JoseScript : MonoBehaviour
     public AudioClip die;
     public AudioClip finishLevel;
     public AudioClip jump;
+    public AudioClip zoom;
     public bool stopMusic = false;
 
     StopMusic _stopMusic;
@@ -276,6 +277,7 @@ public class JoseScript : MonoBehaviour
             print("pepper");
             Speed = Speed * 1.5f;
             JumpForce = JumpForce * 1.5f;
+            _audioSource.PlayOneShot(zoom);
             Invoke("UnPepper", 5);
         }
     }
