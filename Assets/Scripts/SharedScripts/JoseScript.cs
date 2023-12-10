@@ -53,13 +53,11 @@ public class JoseScript : MonoBehaviour
     {
         Scene s = SceneManager.GetActiveScene();
         
-        if (s.name == "Level1Scene")
+        if (s.name == "Level2AScene" || s.name == "Level3Scene")
         {
             print("nnn");
             _goingRight = false;
         }
-
-
 
         _canDie = true;
         _stopMusic = FindObjectOfType<StopMusic>();
@@ -167,14 +165,14 @@ public class JoseScript : MonoBehaviour
     private void HandleMovement()
     {
         //Facing left animations
-        if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow) && !_goingRight))
+        if ((Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow)) && !_goingRight))
         {
             _goingRight = true;
             Flip();
         }
 
         //Facing right animations
-        if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow) && _goingRight))
+        if ((Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow)) && _goingRight))
         {
             _goingRight = false;
             Flip();
