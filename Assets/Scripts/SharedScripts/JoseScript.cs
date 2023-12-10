@@ -51,6 +51,16 @@ public class JoseScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        Scene s = SceneManager.GetActiveScene();
+        
+        if (s.name == "Level1Scene")
+        {
+            print("nnn");
+            _goingRight = false;
+        }
+
+
+
         _canDie = true;
         _stopMusic = FindObjectOfType<StopMusic>();
         _audioSource = GetComponent<AudioSource>();
