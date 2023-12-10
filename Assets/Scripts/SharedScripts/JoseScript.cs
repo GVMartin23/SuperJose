@@ -270,6 +270,14 @@ public class JoseScript : MonoBehaviour
         {
             FrogCollision(collision.gameObject);
         }
+
+        if (collision.gameObject.CompareTag("pepper"))
+        {
+            print("pepper");
+            Speed = Speed * 1.5f;
+            JumpForce = JumpForce * 1.5f;
+            Invoke("UnPepper", 5);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -366,5 +374,11 @@ public class JoseScript : MonoBehaviour
 
         Destroy(enemy);
         _rbody.AddForce(20 * JumpForce * Vector2.up);
+    }
+
+    void UnPepper()
+    {
+        Speed = Speed / 1.5f;
+        JumpForce = JumpForce / 1.5f;
     }
 }
