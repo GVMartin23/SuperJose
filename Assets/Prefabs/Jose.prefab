@@ -338,7 +338,7 @@ MonoBehaviour:
   loseGame: {fileID: 8300000, guid: 4b9d2c470cb39fb4cb5b579936554a01, type: 3}
   die: {fileID: 8300000, guid: efd46c122ca91ac4e8490817156e65d9, type: 3}
   finishLevel: {fileID: 8300000, guid: 6fbe4ec09083e0c4a82e53c092eaca10, type: 3}
-  jump: {fileID: 8300000, guid: e12ab7eca26fcf0458fb78fded230349, type: 3}
+  jump: {fileID: 8300000, guid: 361be3df612eafc44bedb0c2f1b62146, type: 3}
   stopMusic: 0
 --- !u!82 &7941683805178194222
 AudioSource:

@@ -6,12 +6,12 @@ public class ManagerScript : MonoBehaviour
 {
     public GameObject jose;
     public GameObject fireball;
-    private Rigidbody2D _fireBody;
+    ObjectPool fireballPool;
 
     // Start is called before the first frame update
     void Start()
     {
-        _fireBody = fireball.GetComponent<Rigidbody2D>();
+        fireballPool = new ObjectPool(fireball, true, 10);
     }
 
     // Update is called once per frame
@@ -29,10 +29,17 @@ public class ManagerScript : MonoBehaviour
 
     void Rain()
     {
+        GameObject fireBall = GetFireball();
         int location = Random.Range(-25, -3);
         Vector2 pos = new Vector2(location, 6);
-        GameObject _fireB = Instantiate(fireball, pos, Quaternion.identity);
-        Rigidbody2D _fireBB = _fireB.GetComponent<Rigidbody2D>();
+        Rigidbody2D _fireBB = fireBall.GetComponent<Rigidbody2D>();
         _fireBB.gravityScale = 1;
+        fireBall.transform.position = pos;
+        fireBall.SetActive(true);
+    }
+
+    public GameObject GetFireball()
+    {
+        return fireballPool.GetObject();
     }
 }

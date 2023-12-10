@@ -20,10 +20,12 @@ public class FireBossScript : MonoBehaviour
     public GameObject boss;
     public GameObject fireball;
     private Rigidbody2D _rbody;
+    ManagerScript _manager;
 
     // Start is called before the first frame update
     void Start()
     {
+        _manager = FindAnyObjectByType<ManagerScript>();
         _rbody = boss.GetComponent<Rigidbody2D>();
     }
 
@@ -40,11 +42,15 @@ public class FireBossScript : MonoBehaviour
 
     void Shoot()
     {
-        GameObject _fireB = Instantiate(fireball, _rbody.transform.position, Quaternion.identity);
-        Rigidbody2D _fireBB = _fireB.GetComponent<Rigidbody2D>();
+        GameObject fireBall = _manager.GetFireball();
+        Rigidbody2D _fireBB = fireBall.GetComponent<Rigidbody2D>();
+
+        fireBall.transform.position = gameObject.transform.position;
         Vector3 aim = jose.transform.position - transform.position;
         Vector3 aimNormalized = aim.normalized;
         _fireBB.velocity = aimNormalized * 4;
+
+        fireBall.SetActive(true);
     }
 
     void Chase()
@@ -82,57 +88,3 @@ public class FireBossScript : MonoBehaviour
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-//void Wander()
-//{
-//    int chance = UnityEngine.Random.Range(0, 1000);
-//    if (chance < 2)
-//    {
-//        System.Random rand = new System.Random();
-//        float curX = _rbody.velocity.x;
-//        float curY = _rbody.velocity.y;
-//
-//        float xVel = (float)(rand.NextDouble() * 2 - 1);
-//        float yVel = (float)(rand.NextDouble() * 2 - 1);
-//
-//        if (boss.transform.position.y > yUpBound)
-//        {
-//            Vector2 tooFarUp = new Vector2(curX, -1);
-//            tooFarUp.Normalize();
-//            _rbody.velocity = tooFarUp * speed;
-//        }
-//        if (boss.transform.position.y <= yLowBound)
-//        {
-//            Vector2 tooFarDown = new Vector2(curX, 1);
-//            tooFarDown.Normalize();
-//            _rbody.velocity = tooFarDown * speed;
-//        }
-//        if (boss.transform.position.x > xRightBound)
-//        {
-//            Vector2 tooFarLeft = new Vector2(1, curY);
-//            tooFarLeft.Normalize();
-//            _rbody.velocity = tooFarLeft * speed;
-//        }
-//        if (boss.transform.position.x <= xLeftBound)
-//        {
-//            Vector2 tooFarRight = new Vector2(-1, curY);
-//            tooFarRight.Normalize();
-//            _rbody.velocity = tooFarRight * speed;
-//        }
-//        else
-//        {
-//            Vector2 newVel = new Vector2(curX + xVel, curY + yVel);
-//            newVel.Normalize();
-//            _rbody.velocity = newVel * speed;
-//        }
-//    }
-//}
