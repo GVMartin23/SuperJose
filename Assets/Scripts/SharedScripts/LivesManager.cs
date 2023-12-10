@@ -16,7 +16,6 @@ public class LivesManager : MonoBehaviour
 
         for (int i = 0; i < lives; i++)
         {
-            print(i);
             Joses[i].SetActive(true);
         }
     }
