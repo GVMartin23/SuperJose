@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
+
 public class JoseScript : MonoBehaviour
 {
     public LayerMask GroundLayer;
@@ -49,6 +50,14 @@ public class JoseScript : MonoBehaviour
     StopMusic _stopMusic;
     bool _canDie;
 
+    SpriteRenderer _spriteRenderer;
+    GameObject walking;
+    GameObject jumping;
+    //SpriteRenderer _walkingSprite;
+    //SpriteRenderer _jumpingSprite;
+    //public Animation jumpingAnimation;
+    //public Animation walkingAnimation;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -64,6 +73,9 @@ public class JoseScript : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _rbody = GetComponent<Rigidbody2D>();
         _boxCollider = GetComponent<BoxCollider2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        //_walkingSprite = walkingAnimation.GetComponent<SpriteRenderer>();
+        //_jumpingSprite = jumpingAnimation.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -278,6 +290,9 @@ public class JoseScript : MonoBehaviour
             Speed = Speed * 1.5f;
             JumpForce = JumpForce * 1.5f;
             _audioSource.PlayOneShot(zoom);
+            _spriteRenderer.color = Color.red;
+            //_walkingSprite.color = Color.red;
+            //_jumpingSprite.color = Color.red;
             Invoke("UnPepper", 5);
         }
     }
@@ -380,6 +395,9 @@ public class JoseScript : MonoBehaviour
 
     void UnPepper()
     {
+        //_walkingSprite.color = Color.white;
+        //_jumpingSprite.color = Color.white;
+        _spriteRenderer.color = Color.white;
         Speed = Speed / 1.5f;
         JumpForce = JumpForce / 1.5f;
     }
