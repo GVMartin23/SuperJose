@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 7941683805178194222}
   m_Layer: 31
   m_Name: Jose
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,6 +339,7 @@ MonoBehaviour:
   die: {fileID: 8300000, guid: efd46c122ca91ac4e8490817156e65d9, type: 3}
   finishLevel: {fileID: 8300000, guid: 6fbe4ec09083e0c4a82e53c092eaca10, type: 3}
   jump: {fileID: 8300000, guid: e12ab7eca26fcf0458fb78fded230349, type: 3}
+  stopMusic: 0
 --- !u!82 &7941683805178194222
 AudioSource:
   m_ObjectHideFlags: 0
