@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\SharedScripts\firescript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\StopMusic.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\VerticalCameraScript.cs" />
+    <Compile Include="Assets\Scripts\SharedScripts\PepperScript.cs" />
     <Compile Include="Assets\Scripts\Level3AScripts\ManagerScript.cs" />
     <Compile Include="Assets\Scripts\Level3BScripts\yetiScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\CameraScript.cs" />
