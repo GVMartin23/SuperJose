@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Level3AScripts\FireBossScript.cs" />
     <Compile Include="Assets\Scripts\Level3AScripts\FireCannonScript.cs" />
     <Compile Include="Assets\Scripts\WinGameScripts\WinGameSceneManagerScript.cs" />
+    <Compile Include="Assets\Scripts\StopMusic.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\firescript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\VerticalCameraScript.cs" />
     <Compile Include="Assets\Scripts\Level3AScripts\ManagerScript.cs" />
