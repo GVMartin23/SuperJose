@@ -43,11 +43,16 @@ public class JoseScript : MonoBehaviour
     public AudioClip die;
     public AudioClip finishLevel;
     public AudioClip jump;
-    bool stopMusic = false;
+    public bool stopMusic = false;
+
+    StopMusic _stopMusic;
+    bool _canDie;
 
     // Start is called before the first frame update
     private void Start()
     {
+        _canDie = true;
+        _stopMusic = FindObjectOfType<StopMusic>();
         _audioSource = GetComponent<AudioSource>();
         _rbody = GetComponent<Rigidbody2D>();
         _boxCollider = GetComponent<BoxCollider2D>();
@@ -217,6 +222,7 @@ public class JoseScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Level2ADoor"))
         {
             stopMusic = true;
+            _stopMusic.Stop();
             _goingRight = false;
             _audioSource.PlayOneShot(finishLevel);
             Invoke(nameof(LoadLevel2A), 2);
@@ -224,12 +230,14 @@ public class JoseScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Level2BDoor"))
         {
             stopMusic = true;
+            _stopMusic.Stop();
             _audioSource.PlayOneShot(finishLevel);
             Invoke(nameof(LoadLevel2B), 2);
         }
         if (collision.gameObject.CompareTag("Level3ADoor"))
         {
             stopMusic = true;
+            _stopMusic.Stop();
             _audioSource.PlayOneShot(finishLevel);
             _goingRight = false;
             Invoke(nameof(LoadLevel3A), 2);
@@ -237,14 +245,17 @@ public class JoseScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Level3BDoor"))
         {
             stopMusic = true;
+            _stopMusic.Stop();
             _audioSource.PlayOneShot(finishLevel);
             Invoke(nameof(LoadLevel3B), 2);
         }
         if (collision.gameObject.CompareTag("WinGame"))
         {
+            _canDie = false;
             stopMusic = true;
+            _stopMusic.Stop();
             _audioSource.PlayOneShot(winGame);
-            Invoke(nameof(LoadWinGame), 3);
+            Invoke(nameof(LoadWinGame), 4);
         }
 
         //Check if Jose has collided with an enemy or hazard
@@ -305,36 +316,40 @@ public class JoseScript : MonoBehaviour
     //Handles any collisions for Enemies
     private void FrogCollision(GameObject enemy)
     {
-        //Default to if velocity decreasing, Jose wins
-        if (_rbody.velocity.y < -0.01f && (enemy.CompareTag("FroggyBoi") || enemy.CompareTag("SnowMan")))
+        if (_canDie == true)
         {
-            //Kill enemy instead of Jose
-            StompEnemy(enemy);
-            return;
-        }
+            //Default to if velocity decreasing, Jose wins
+            if (_rbody.velocity.y < -0.01f && (enemy.CompareTag("FroggyBoi") || enemy.CompareTag("SnowMan")))
+            {
+                //Kill enemy instead of Jose
+                StompEnemy(enemy);
+                return;
+            }
 
-        _audioSource.PlayOneShot(die);
+            _audioSource.PlayOneShot(die);
 
-        _isDead = true;
-        //Reduce lives by one
-        int lives = PlayerPrefs.GetInt("Lives");
-        lives--;
-        PlayerPrefs.SetInt("Lives", lives);
+            _isDead = true;
+            //Reduce lives by one
+            int lives = PlayerPrefs.GetInt("Lives");
+            lives--;
+            PlayerPrefs.SetInt("Lives", lives);
 
-        _rbody.velocity = Vector2.up * 8f;
-        _boxCollider.enabled = false;
+            _rbody.velocity = Vector2.up * 8f;
+            _boxCollider.enabled = false;
 
-        //If Lives = 0 go to lose game, else reset level
-        if (lives <= 0)
-        {
-            stopMusic = true;
-            _audioSource.PlayOneShot(loseGame);
+            //If Lives = 0 go to lose game, else reset level
+            if (lives <= 0)
+            {
+                stopMusic = true;
+                _stopMusic.Stop();
+                _audioSource.PlayOneShot(loseGame);
 
-            Invoke(nameof(LoadLoseGame), 2f);
-        }
-        else
-        {
-            Invoke(SceneName, 2f);
+                Invoke(nameof(LoadLoseGame), 2f);
+            }
+            else
+            {
+                Invoke(SceneName, 2f);
+            }
         }
     }
 
