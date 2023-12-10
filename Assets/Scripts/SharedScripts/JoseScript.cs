@@ -55,7 +55,6 @@ public class JoseScript : MonoBehaviour
         
         if (s.name == "Level2AScene" || s.name == "Level3Scene")
         {
-            print("nnn");
             _goingRight = false;
         }
 

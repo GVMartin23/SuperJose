@@ -5,7 +5,6 @@ using UnityEngine;
 public class fireballScript : MonoBehaviour
 {
     Rigidbody2D _rbody;
-
     AudioSource _audiosource;
 
     // Start is called before the first frame update
@@ -22,12 +21,12 @@ public class fireballScript : MonoBehaviour
     {
         if (_rbody.transform.position.y < -3) 
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
