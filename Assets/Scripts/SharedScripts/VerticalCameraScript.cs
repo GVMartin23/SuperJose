@@ -15,7 +15,7 @@ public class VerticalCameraScript : MonoBehaviour
         _joseRigidBody = Jose.GetComponent<Rigidbody2D>();
         _joseScript = FindObjectOfType<JoseScript>();
         //Set camera at correct Y value
-        transform.position = new Vector3(_joseRigidBody.transform.position.x, _joseRigidBody.transform.position.y + 3.285f, transform.position.z);
+        transform.position = new Vector3(_joseRigidBody.transform.position.x, _joseRigidBody.transform.position.y + 2.285f, transform.position.z);
     }
 
     // Update is called once per frame
@@ -25,10 +25,18 @@ public class VerticalCameraScript : MonoBehaviour
 
     private void LateUpdate()
     {
+        var offset = transform.position.y - Jose.transform.position.y;
+
+        
+
         if (Jose != null && !_joseScript._isDead)
         {
-            transform.position = new Vector3(_joseRigidBody.transform.position.x, _joseRigidBody.transform.position.y + 3.285f, transform.position.z);
+            if (offset > 3 && _joseRigidBody.velocity.y < 0)
+            {
+                transform.position = new Vector3(_joseRigidBody.transform.position.x, _joseRigidBody.transform.position.y + 3f, transform.position.z);
+            }
 
+            transform.position = new Vector3(_joseRigidBody.transform.position.x, _joseRigidBody.transform.position.y + 2.285f, transform.position.z);
         }
     }
 }
