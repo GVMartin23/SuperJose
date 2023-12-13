@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEditor;
 using System.Runtime.CompilerServices;
+using System.Collections.Specialized;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
@@ -46,9 +47,12 @@ public class FireBossScript : MonoBehaviour
         Rigidbody2D _fireBB = fireBall.GetComponent<Rigidbody2D>();
 
         fireBall.transform.position = gameObject.transform.position;
+
+        int rand = UnityEngine.Random.Range(0, 5);
         Vector3 aim = jose.transform.position - transform.position;
-        Vector3 aimNormalized = aim.normalized;
-        _fireBB.velocity = aimNormalized * 4;
+        aim.x -= rand;
+        //Vector3 aimNormalized = aim.normalized;
+        _fireBB.velocity = aim * 0.5f;
 
         fireBall.SetActive(true);
     }
@@ -82,7 +86,7 @@ public class FireBossScript : MonoBehaviour
         }
 
         int chance = UnityEngine.Random.Range(0, 1000);
-        if (chance < 3)
+        if (chance < 15)
         {
             Shoot();
         }

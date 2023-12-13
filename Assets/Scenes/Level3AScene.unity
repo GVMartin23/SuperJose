@@ -9700,11 +9700,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 31169840550492747, guid: 617ce10e8543ac74f9932b03366b1fdb, type: 3}
       propertyPath: m_SortingLayer
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 31169840550492747, guid: 617ce10e8543ac74f9932b03366b1fdb, type: 3}
       propertyPath: m_SortingLayerID
-      value: -302217717
+      value: -1424848039
       objectReference: {fileID: 0}
     - target: {fileID: 1447404592137823405, guid: 617ce10e8543ac74f9932b03366b1fdb, type: 3}
       propertyPath: m_LocalScale.x
@@ -13484,6 +13484,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1447404592137823405, guid: 617ce10e8543ac74f9932b03366b1fdb, type: 3}
   m_PrefabInstance: {fileID: 1361058537}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1368507907
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6024848319935658875, guid: 4b009c2166d75e74891ccbf7e4aea1b8, type: 3}
+      propertyPath: m_Name
+      value: FireCannon (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912282690278982776, guid: 4b009c2166d75e74891ccbf7e4aea1b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.519
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912282690278982776, guid: 4b009c2166d75e74891ccbf7e4aea1b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.618
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912282690278982776, guid: 4b009c2166d75e74891ccbf7e4aea1b8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912282690278982776, guid: 4b009c2166d75e74891ccbf7e4aea1b8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912282690278982776, guid: 4b009c2166d75e74891ccbf7e4aea1b8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912282690278982776, guid: 4b009c2166d75e74891ccbf7e4aea1b8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912282690278982776, guid: 4b009c2166d75e74891ccbf7e4aea1b8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912282690278982776, guid: 4b009c2166d75e74891ccbf7e4aea1b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912282690278982776, guid: 4b009c2166d75e74891ccbf7e4aea1b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912282690278982776, guid: 4b009c2166d75e74891ccbf7e4aea1b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4b009c2166d75e74891ccbf7e4aea1b8, type: 3}
 --- !u!1001 &1368993906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20993,9 +21050,9 @@ MonoBehaviour:
   xRightBound: 20
   yLowBound: 0
   yUpBound: 4
-  speed: 2
+  speed: 4
   range: 15
-  rateOfFire: 1
+  rateOfFire: 10
   jose: {fileID: 97252206}
   boss: {fileID: 1977360611}
   fireball: {fileID: 2700027625487371598, guid: a306209bde2ad934886316f5b590720f, type: 3}
@@ -22849,3 +22906,4 @@ SceneRoots:
   - {fileID: 1118544589}
   - {fileID: 1029283885}
   - {fileID: 1752236613}
+  - {fileID: 1368507907}
