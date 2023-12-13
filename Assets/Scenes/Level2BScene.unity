@@ -5701,7 +5701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1102122305116306451, guid: 9565066da716f01499d224070f247e48, type: 3}
       propertyPath: _wallLayer.m_Bits
-      value: 536870976
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 5512694294752034502, guid: 9565066da716f01499d224070f247e48, type: 3}
       propertyPath: m_Name

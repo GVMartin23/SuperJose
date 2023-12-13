@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 15066804}
   - component: {fileID: 15066803}
   m_Layer: 5
-  m_Name: Jose2
+  m_Name: Jose5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -835,7 +835,7 @@ GameObject:
   - component: {fileID: 727077869}
   - component: {fileID: 727077868}
   m_Layer: 5
-  m_Name: Jose3
+  m_Name: Jose4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1141,11 +1141,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lives: {fileID: 1283288548}
   Joses:
-  - {fileID: 1052744640}
-  - {fileID: 15066801}
-  - {fileID: 727077866}
-  - {fileID: 938348879}
   - {fileID: 1672194532}
+  - {fileID: 1052744640}
+  - {fileID: 938348879}
+  - {fileID: 727077866}
+  - {fileID: 15066801}
 --- !u!1001 &806143661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1345,7 +1345,7 @@ GameObject:
   - component: {fileID: 938348882}
   - component: {fileID: 938348881}
   m_Layer: 5
-  m_Name: Jose4
+  m_Name: Jose3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1483,7 +1483,7 @@ GameObject:
   - component: {fileID: 1052744643}
   - component: {fileID: 1052744642}
   m_Layer: 5
-  m_Name: Jose1
+  m_Name: Jose2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2373,11 +2373,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1295280675}
-  - {fileID: 1052744641}
-  - {fileID: 15066802}
-  - {fileID: 727077867}
-  - {fileID: 938348880}
   - {fileID: 1672194533}
+  - {fileID: 1052744641}
+  - {fileID: 938348880}
+  - {fileID: 727077867}
+  - {fileID: 15066802}
   - {fileID: 1784818976}
   - {fileID: 231598634}
   - {fileID: 1283288547}
@@ -2457,7 +2457,7 @@ GameObject:
   - component: {fileID: 1672194535}
   - component: {fileID: 1672194534}
   m_Layer: 5
-  m_Name: Jose5
+  m_Name: Jose1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
