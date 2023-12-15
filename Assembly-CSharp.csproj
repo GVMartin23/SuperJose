@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{780EE31C-D2C6-10C7-2EC2-0CAEAF5F7D6D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -62,7 +63,6 @@
     <Compile Include="Assets\Scripts\Level3AScripts\FireBossScript.cs" />
     <Compile Include="Assets\Scripts\Level3AScripts\FireCannonScript.cs" />
     <Compile Include="Assets\Scripts\WinGameScripts\WinGameSceneManagerScript.cs" />
-    <Compile Include="Assets\Scripts\SharedScripts\firescript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\StopMusic.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\VerticalCameraScript.cs" />
     <Compile Include="Assets\Scripts\SharedScripts\PepperScript.cs" />

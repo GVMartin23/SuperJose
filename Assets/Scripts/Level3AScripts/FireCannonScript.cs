@@ -3,31 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ParticleSystem))]
-
 public class FireCannonScript : MonoBehaviour
 {
     public GameObject cannon;
-    bool _fire;
-    string tagToFind = "firebox";
-    private List<GameObject> colliderList = new List<GameObject> ();
+    private bool _fire;
+    private string tagToFind = "firebox";
+    private List<GameObject> colliderList = new List<GameObject>();
 
     public AudioClip whoosh;
-    AudioSource _audiosource;
-
+    private AudioSource _audiosource;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        //Enables fire, locates all firecannon colliders
         _fire = true;
         PopulateGameObjectsList();
 
-        _audiosource = GetComponent<AudioSource> ();
+        //Sets audio volume
+        _audiosource = GetComponent<AudioSource>();
         _audiosource.volume = 0.1f;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        //If _fire, call Whoosh and Fire
         if (_fire == true)
         {
             _fire = false;
@@ -36,40 +37,49 @@ public class FireCannonScript : MonoBehaviour
         }
     }
 
-    void Fire()
+    private void Fire()
     {
+        //Enables cannon particles
         cannon.GetComponent<ParticleSystem>().enableEmission = true;
 
+        //Enables all canaon colliders
         foreach (GameObject obj in colliderList)
         {
             BoxCollider2D boxCollider = obj.GetComponent<BoxCollider2D>();
 
             boxCollider.enabled = true;
         }
+
+        //Call cease 1 second later
         Invoke("Cease", 1);
     }
 
-    void Cease()
+    private void Cease()
     {
+        //Disables particles
         cannon.GetComponent<ParticleSystem>().enableEmission = false;
 
+        //Disables colliders
         foreach (GameObject obj in colliderList)
         {
             BoxCollider2D boxCollider = obj.GetComponent<BoxCollider2D>();
 
             boxCollider.enabled = false;
         }
+
         _fire = true;
     }
 
-    void PopulateGameObjectsList()
+    private void PopulateGameObjectsList()
     {
+        //Get all firecannon colliders
         GameObject[] foundObjects = GameObject.FindGameObjectsWithTag(tagToFind);
         colliderList.AddRange(foundObjects);
     }
 
-    void Whoosh()
+    private void Whoosh()
     {
+        //Play audio
         _audiosource.PlayOneShot(whoosh);
     }
 }

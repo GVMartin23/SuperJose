@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-
 public class JoseScript : MonoBehaviour
 {
     public LayerMask GroundLayer;
@@ -38,7 +37,7 @@ public class JoseScript : MonoBehaviour
     public Vector2 WallJumpForce;
     public float WallJumpDuration;
 
-    AudioSource _audioSource;
+    private AudioSource _audioSource;
     public AudioClip winGame;
     public AudioClip loseGame;
     public AudioClip die;
@@ -47,35 +46,30 @@ public class JoseScript : MonoBehaviour
     public AudioClip zoom;
     public bool stopMusic = false;
 
-    StopMusic _stopMusic;
-    bool _canDie;
+    private StopMusic _stopMusic;
+    private bool _canDie;
 
-    SpriteRenderer _spriteRenderer;
-    GameObject walking;
-    GameObject jumping;
-    //SpriteRenderer _walkingSprite;
-    //SpriteRenderer _jumpingSprite;
-    //public Animation jumpingAnimation;
-    //public Animation walkingAnimation;
+    private SpriteRenderer _spriteRenderer;
+    private GameObject walking;
+    private GameObject jumping;
 
     // Start is called before the first frame update
     private void Start()
     {
         Scene s = SceneManager.GetActiveScene();
-        
+
         if (s.name == "Level2AScene" || s.name == "Level3Scene")
         {
             _goingRight = false;
         }
 
+        //Initialize auido and collider
         _canDie = true;
         _stopMusic = FindObjectOfType<StopMusic>();
         _audioSource = GetComponent<AudioSource>();
         _rbody = GetComponent<Rigidbody2D>();
         _boxCollider = GetComponent<BoxCollider2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        //_walkingSprite = walkingAnimation.GetComponent<SpriteRenderer>();
-        //_jumpingSprite = jumpingAnimation.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -130,11 +124,13 @@ public class JoseScript : MonoBehaviour
 
         _isSliding = _isWallTouch && !IsGrounded() && xdir != 0;
 
+        //Set sliding speed
         if (_isSliding)
         {
             _rbody.velocity = new Vector2(_rbody.velocity.x, Mathf.Clamp(_rbody.velocity.y, -WallSlidingSpeed, float.MaxValue));
         }
 
+        //Start Wall Jump
         if (_isSliding && _startedJump)
         {
             _isWallJumping = true;
@@ -162,6 +158,7 @@ public class JoseScript : MonoBehaviour
 
     private void StopWallJump()
     {
+        //Allows for new Jump
         _isWallJumping = false;
         _canStartJump = true;
         Invoke(nameof(StopInWallJump), .15f);
@@ -169,6 +166,7 @@ public class JoseScript : MonoBehaviour
 
     private void StopInWallJump()
     {
+        //Enables movement inputs
         _inWallJump = false;
     }
 
@@ -215,6 +213,7 @@ public class JoseScript : MonoBehaviour
 
     private void Flip()
     {
+        //Reverses sprites
         gameObject.GetComponent<SpriteRenderer>().flipX = _goingRight;
         PlayerJump.GetComponent<SpriteRenderer>().flipX = _goingRight;
         PlayerWalk.GetComponent<SpriteRenderer>().flipX = _goingRight;
@@ -247,14 +246,14 @@ public class JoseScript : MonoBehaviour
             _audioSource.PlayOneShot(finishLevel);
             Invoke(nameof(LoadLevel2A), 2);
         }
-        if (collision.gameObject.CompareTag("Level2BDoor"))
+        else if (collision.gameObject.CompareTag("Level2BDoor"))
         {
             stopMusic = true;
             _stopMusic.Stop();
             _audioSource.PlayOneShot(finishLevel);
             Invoke(nameof(LoadLevel2B), 2);
         }
-        if (collision.gameObject.CompareTag("Level3ADoor"))
+        else if (collision.gameObject.CompareTag("Level3ADoor"))
         {
             stopMusic = true;
             _stopMusic.Stop();
@@ -262,14 +261,14 @@ public class JoseScript : MonoBehaviour
             _goingRight = false;
             Invoke(nameof(LoadLevel3A), 2);
         }
-        if (collision.gameObject.CompareTag("Level3BDoor"))
+        else if (collision.gameObject.CompareTag("Level3BDoor"))
         {
             stopMusic = true;
             _stopMusic.Stop();
             _audioSource.PlayOneShot(finishLevel);
             Invoke(nameof(LoadLevel3B), 2);
         }
-        if (collision.gameObject.CompareTag("WinGame"))
+        else if (collision.gameObject.CompareTag("WinGame"))
         {
             _canDie = false;
             stopMusic = true;
@@ -284,15 +283,15 @@ public class JoseScript : MonoBehaviour
             FrogCollision(collision.gameObject);
         }
 
+        //Pepper collision
         if (collision.gameObject.CompareTag("pepper"))
         {
-            print("pepper");
-            Speed = Speed * 1.5f;
-            JumpForce = JumpForce * 1.5f;
+            //Increases Joses Speed and Jump Force
+            Speed *= 1.5f;
+            JumpForce *= 1.5f;
             _audioSource.PlayOneShot(zoom);
+            //Change color of Jose to red
             _spriteRenderer.color = Color.red;
-            //_walkingSprite.color = Color.red;
-            //_jumpingSprite.color = Color.red;
             Invoke("UnPepper", 5);
         }
     }
@@ -393,12 +392,13 @@ public class JoseScript : MonoBehaviour
         _rbody.AddForce(20 * JumpForce * Vector2.up);
     }
 
-    void UnPepper()
+    private void UnPepper()
     {
+        // Reset Speed and Jumping, and Jose's color
         //_walkingSprite.color = Color.white;
         //_jumpingSprite.color = Color.white;
         _spriteRenderer.color = Color.white;
-        Speed = Speed / 1.5f;
-        JumpForce = JumpForce / 1.5f;
+        Speed /= 1.5f;
+        JumpForce /= 1.5f;
     }
 }

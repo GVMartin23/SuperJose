@@ -44,7 +44,7 @@ public class FireBossScript : MonoBehaviour
 
     private void Shoot()
     {
-        //Create new fireball
+        //Get fireball
         GameObject fireBall = _manager.GetFireball();
         Rigidbody2D _fireBB = fireBall.GetComponent<Rigidbody2D>();
 

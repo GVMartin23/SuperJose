@@ -4,46 +4,43 @@ using UnityEngine;
 
 public class breakingPlatformScript : MonoBehaviour
 {
-    AudioSource _audioSource;
+    private AudioSource _audioSource;
 
-    public GameObject snowFall;
-    void Start()
+    private void Start()
     {
+        //Get audiosorce
         _audioSource = GetComponent<AudioSource>();
-        snowFall.SetActive(false);
-        snowFall.transform.position = transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")) {
+        //Break platform 1 second after player touches
+        if (collision.gameObject.CompareTag("Player"))
+        {
             Invoke("BreakPlatform", 1);
             Invoke("BreakSound", 0.5f);
         }
     }
 
-    void BreakPlatform()
+    private void BreakPlatform()
     {
+        //disable platform
         gameObject.SetActive(false);
-        snowFall.SetActive(true);
         Invoke("BuildPlatform", 5);
-        
-
     }
 
-    void BuildPlatform()
+    private void BuildPlatform()
     {
+        //reset platform
         gameObject.SetActive(true);
-
     }
 
-    void BreakSound()
+    private void BreakSound()
     {
         _audioSource.Play();
     }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2853344587202874185}
   - component: {fileID: 5965813641943328888}
   - component: {fileID: 3647981037367254842}
-  - component: {fileID: -1839049743343944056}
   m_Layer: 0
   m_Name: fire_0
   m_TagString: NonDodgeableEnemy
@@ -153,15 +152,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.2}
   m_EdgeRadius: 0
---- !u!114 &-1839049743343944056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7807411070908244034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d5239764204e14eba5fadeed404f59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

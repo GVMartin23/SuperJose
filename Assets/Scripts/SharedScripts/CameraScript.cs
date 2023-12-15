@@ -25,6 +25,7 @@ public class CameraScript : MonoBehaviour
     {
         if (Jose != null)
         {
+            //Only Move is Jose is leaving the inner 4 units of the screen
             var offset = transform.position.x - Jose.transform.position.x;
             if (offset < -2 && _joseRigidBody.velocity.x > 0)
             {

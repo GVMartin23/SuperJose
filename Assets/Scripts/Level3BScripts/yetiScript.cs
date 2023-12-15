@@ -5,24 +5,26 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class yetiScript : MonoBehaviour
 {
-
-    Animator animator;
+    private Animator animator;
     public GameObject snowBallPrefab;
-    float throwTime;
+    private float throwTime;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        //Initialiaze
         throwTime = 0f;
         animator = GetComponent<Animator>();
         //Invoke("ThrowSnowBall", 1.15f);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         throwTime += Time.deltaTime;
 
-        //Invoke("ThrowSnowBall", 2.5f);
+        //If past certain time, and animation can play
+        //Throw new snowball
         if (throwTime > 9f && !animator.GetBool("canThrow"))
         {
             animator.SetBool("canThrow", true);
@@ -31,14 +33,12 @@ public class yetiScript : MonoBehaviour
         }
     }
 
-    void ThrowSnowBall()
+    private void ThrowSnowBall()
     {
-        var snoowball = Instantiate(snowBallPrefab,new Vector3(7.34f,39.5f,0),Quaternion.identity);
+        //Create new snowball
+        var snoowball = Instantiate(snowBallPrefab, new Vector3(7.34f, 39.5f, 0), Quaternion.identity);
         //snoowball.GetComponent<Rigidbody2D>().AddForce(new Vector3(-5, 0, 0));
+        //Reset canThrow
         animator.SetBool("canThrow", false);
-        
     }
-
-    
 }
-

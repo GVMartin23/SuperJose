@@ -2,28 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent (typeof(Animator))]
+[RequireComponent(typeof(Animator))]
 public class DoorScript : MonoBehaviour
 {
-    BoxCollider2D boxCol;
-    Animator _animator;
+    private Animator _animator;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        boxCol = GetComponent<BoxCollider2D>();
+        //Get animator
         _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //If colliding with player, OpenDoor
         if (collision.gameObject.CompareTag("Player"))
         {
             OpenDoor();
@@ -32,10 +30,7 @@ public class DoorScript : MonoBehaviour
 
     private void OpenDoor()
     {
-        //gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        //Open door animation
         _animator.SetBool("Opened", true);
-        
     }
-
-
 }
