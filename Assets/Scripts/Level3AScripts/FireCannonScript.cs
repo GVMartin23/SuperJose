@@ -14,7 +14,6 @@ public class FireCannonScript : MonoBehaviour
     public AudioClip whoosh;
     AudioSource _audiosource;
 
-
     // Start is called before the first frame update
     void Start()
     {
