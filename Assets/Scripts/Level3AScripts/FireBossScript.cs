@@ -92,7 +92,7 @@ public class FireBossScript : MonoBehaviour
 
         //Randomly shoot
         int chance = UnityEngine.Random.Range(0, 1000);
-        if (chance < 15)
+        if (chance < 5)
         {
             Shoot();
         }
