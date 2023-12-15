@@ -396,6 +396,7 @@ public class JoseScript : MonoBehaviour
 
     private void UnPepper()
     {
+        // Reset Speed and Jumping, and Jose's color
         PlayerWalk.GetComponent<SpriteRenderer>().color = Color.white;
         PlayerJump.GetComponent<SpriteRenderer>().color = Color.white;
         _spriteRenderer.color = Color.white;

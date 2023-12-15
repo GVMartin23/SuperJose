@@ -27,6 +27,7 @@ public class NavigationScript : MonoBehaviour
 
     private void PauseGame()
     {
+        //If paused, stop timeScale, enable pause menu
         if (GameIsPaused)
         {
             Time.timeScale = 0;
@@ -55,12 +56,14 @@ public class NavigationScript : MonoBehaviour
 
     public void OnMenuButtonClicked()
     {
+        //Reset timeScale, Load StartMenuScene
         Time.timeScale = 1;
         SceneManager.LoadScene("StartMenuScene");
     }
 
     public void OnQuitButtonClicked()
     {
+        //Reset timeScale, exit game
         Time.timeScale = 1;
         Application.Quit();
     }

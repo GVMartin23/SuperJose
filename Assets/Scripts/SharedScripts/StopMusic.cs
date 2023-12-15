@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class StopMusic : MonoBehaviour
 {
-    AudioSource _audioSource;
-    JoseScript _joseScript;
+    private AudioSource _audioSource;
+    private JoseScript _joseScript;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _joseScript = FindObjectOfType<JoseScript>();
         _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (_joseScript.stopMusic == true)
         {

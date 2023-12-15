@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class ObjectPool
 {
-    int cursor = 0;
-    GameObject prototype;
-    List<GameObject> pool;
+    private int cursor = 0;
+    private GameObject prototype;
+    private List<GameObject> pool;
     public bool canGrow;
 
     // constructor
