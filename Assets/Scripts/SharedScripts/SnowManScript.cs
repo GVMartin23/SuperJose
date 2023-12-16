@@ -10,9 +10,6 @@ public class SnowManScript : MonoBehaviour
     public float ShootSpeed;
     public float ShootDelay;
 
-    [Header("Hack for Shooting Down")]
-    public bool AlwaysShoot;
-
     private float _lastShot;
     private bool _goingRight;
     private float _halfWidth;
@@ -32,7 +29,7 @@ public class SnowManScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (DetectPlayer() || AlwaysShoot) Shoot();
+        if (DetectPlayer()) Shoot();
     }
 
     //Shoot in direction of player
@@ -44,12 +41,6 @@ public class SnowManScript : MonoBehaviour
         //Calculate spawn position
         Vector3 spawnPoint = _goingRight ? transform.position + (Vector3.right * _halfWidth) : transform.position + (Vector3.left * _halfWidth);
 
-        if (AlwaysShoot)
-        {
-            //Hack for shooting down
-            spawnPoint = transform.position - Vector3.down;
-        }
-
         GameObject SnowBall = Instantiate(SnowBallPrefab, spawnPoint, Quaternion.identity);
 
         //Set velocity
@@ -59,13 +50,6 @@ public class SnowManScript : MonoBehaviour
         //Put Particles behind snowball depending on direction
         SnowBall.transform.eulerAngles = new Vector3(0, 0, _goingRight ? 0 : 180);
         _lastShot = Time.time;
-
-        if (AlwaysShoot)
-        {
-            //Hack for shooting down
-            SnowBall.GetComponent<Rigidbody2D>().velocity = Vector2.down * ShootSpeed;
-            SnowBall.transform.eulerAngles = new Vector3(0, 0, 90);
-        }
     }
 
     //Detect if Player is able to be seen by snowman

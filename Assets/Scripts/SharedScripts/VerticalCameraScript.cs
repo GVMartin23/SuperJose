@@ -25,9 +25,8 @@ public class VerticalCameraScript : MonoBehaviour
 
     private void LateUpdate()
     {
+        //Camera follows Jose based on if he moves up and down
         var offset = transform.position.y - Jose.transform.position.y;
-
-        
 
         if (Jose != null && !_joseScript._isDead)
         {
